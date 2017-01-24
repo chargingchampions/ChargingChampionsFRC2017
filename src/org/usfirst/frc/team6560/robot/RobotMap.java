@@ -7,7 +7,8 @@ package org.usfirst.frc.team6560.robot;
  */
 public class RobotMap {
 	public static class Joysticks {
-		public static final int JOYSTICK = 1;
+		public static final int JOYSTICK1 = 0;
+		public static final int JOYSTICK2 = 1;
 		public static final int DRV_STATION = 0;
 	}
 	public static class Can {
@@ -20,7 +21,8 @@ public class RobotMap {
 	
 	public static class Pwm {
 		//Servos for camera 360
-		public static final int X_AXIS_CAM = 0;
-		public static final int Y_AXIS_CAM = 0;
+		public static final int X_AXIS_CAM = 8;
+		public static final int Y_AXIS_CAM = 9;
 	}
+	
 }

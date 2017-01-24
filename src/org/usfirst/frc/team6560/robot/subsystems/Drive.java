@@ -14,8 +14,8 @@ public class Drive extends Subsystem {
     
     RobotDrive drivetrain = new RobotDrive(leftTopMotor, leftBottomMotor, rightTopMotor, rightBottomMotor);
 
-    public void driveWithJoysticks(Joystick joy) {
-    	drivetrain.arcadeDrive(joy);
+    public void driveWithJoysticks(double left, double right) {
+    	drivetrain.tankDrive(0.75 * left, 0.75 * right);
     }
     
     public void stop() {

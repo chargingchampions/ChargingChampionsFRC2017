@@ -12,7 +12,7 @@ public class OI {
 	public final Joystick gamepad;
 	
 	public OI() {
-		gamepad = new Joystick(RobotMap.Joysticks.JOYSTICK);
+		gamepad = new Joystick(RobotMap.Joysticks.JOYSTICK1);
 		
 		//Right hand buttons
 		//TODO check if buttons are 0 based on driver station
@@ -34,12 +34,12 @@ public class OI {
 		
 	}
     
-	public double getXAxis() {
-		return gamepad.getRawAxis(0);
+	public double getLeftYAxis() {
+		return gamepad.getRawAxis(1);
 	}
 	
-	public double getYAxis() {
-		return gamepad.getRawAxis(1);
+	public double getRightYAxis() {
+		return gamepad.getRawAxis(5);
 	}
 	
 	public double getZAxis() {

@@ -13,7 +13,7 @@ public class DriveWithJoysticks extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.driveWithJoysticks(Robot.oi.gamepad);
+    	Robot.drive.driveWithJoysticks(Robot.oi.getRightYAxis(), Robot.oi.getLeftYAxis());
     }
 
     protected boolean isFinished() {

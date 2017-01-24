@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team6560.robot;
 
-import org.usfirst.frc.team6560.robot.subsystems.Drive;
+import org.usfirst.frc.team6560.robot.subsystems.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -15,15 +15,17 @@ public class Robot extends IterativeRobot {
 
 	//Subsystems
 	public static Drive drive;
+	public static Vision vision;
 	private static SendableChooser chooser;
 
 	
 	Command autonomousCommand;
-
+	
     public void robotInit() {
     	oi = new OI();
     	drive = new Drive();
 		chooser = new SendableChooser();
+		vision = new Vision();
     }
 	
     public void disabledInit(){
