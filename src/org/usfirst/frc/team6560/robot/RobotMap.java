@@ -7,7 +7,7 @@ package org.usfirst.frc.team6560.robot;
  */
 public class RobotMap {
 	public static class Joysticks {
-		public static final int JOYSTICK1 = 0;
+		public static final int JOYSTICK1 = 5;
 		public static final int JOYSTICK2 = 1;
 		public static final int DRV_STATION = 0;
 	}
@@ -17,6 +17,16 @@ public class RobotMap {
 		public static final int LEFT_REAR_MOTOR = 2;
 		public static final int RIGHT_FWD_MOTOR = 14;
 		public static final int RIGHT_REAR_MOTOR = 13;
+		
+		//Pneumatics
+		public static final int SOLENOID_0 = 0;
+		public static final int SOLENOID_1 = 1;
+		public static final int SOLENOID_2 = 2;
+		public static final int SOLENOID_3 = 3;
+		public static final int SOLENOID_4 = 4;
+		public static final int SOLENOID_5 = 5;
+		public static final int SOLENOID_6 = 6;
+		public static final int SOLENOID_7 = 7;
 	}
 	
 	public static class Pwm {

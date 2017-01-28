@@ -16,6 +16,7 @@ public class Robot extends IterativeRobot {
 	//Subsystems
 	public static Drive drive;
 	public static Vision vision;
+	public static GearMission gearMission;
 	private static SendableChooser chooser;
 
 	
@@ -26,6 +27,7 @@ public class Robot extends IterativeRobot {
     	drive = new Drive();
 		chooser = new SendableChooser();
 		vision = new Vision();
+		gearMission = new GearMission();
     }
 	
     public void disabledInit(){

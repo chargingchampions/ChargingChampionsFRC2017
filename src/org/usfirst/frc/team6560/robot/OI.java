@@ -16,21 +16,32 @@ public class OI {
 		
 		//Right hand buttons
 		//TODO check if buttons are 0 based on driver station
-		JoystickButton trigger = new JoystickButton(gamepad, 1);
-		JoystickButton rightThumb = new JoystickButton(gamepad, 2);
-		JoystickButton button3 = new JoystickButton(gamepad, 3);
-		JoystickButton button4 = new JoystickButton(gamepad, 4);
-		JoystickButton button5 = new JoystickButton(gamepad, 5);
-		
-		//Left hand buttons
-		JoystickButton button6 = new JoystickButton(gamepad, 6);
-		JoystickButton button7 = new JoystickButton(gamepad, 7);
-		JoystickButton button8 = new JoystickButton(gamepad, 8);
-		JoystickButton button9 = new JoystickButton(gamepad, 9);
-		JoystickButton button10 = new JoystickButton(gamepad, 10);
-		JoystickButton button11 = new JoystickButton(gamepad, 11);
-		JoystickButton button12 = new JoystickButton(gamepad, 12);
-		
+//		JoystickButton trigger = new JoystickButton(gamepad, 1);
+//		JoystickButton rightThumb = new JoystickButton(gamepad, 2);
+//		JoystickButton button3 = new JoystickButton(gamepad, 3);
+//		JoystickButton button4 = new JoystickButton(gamepad, 4);
+//		JoystickButton button5 = new JoystickButton(gamepad, 5);
+//		
+//		//Left hand buttons
+//		JoystickButton button6 = new JoystickButton(gamepad, 6);
+//		JoystickButton button7 = new JoystickButton(gamepad, 7);
+//		JoystickButton button8 = new JoystickButton(gamepad, 8);
+//		JoystickButton button9 = new JoystickButton(gamepad, 9);
+//		JoystickButton button10 = new JoystickButton(gamepad, 10);
+//		JoystickButton button11 = new JoystickButton(gamepad, 11);
+//		JoystickButton button12 = new JoystickButton(gamepad, 12);
+//		
+		JoystickButton aButton = new JoystickButton(gamepad, 0);
+		JoystickButton bButton = new JoystickButton(gamepad, 1);
+		JoystickButton xButton = new JoystickButton(gamepad, 2);
+		JoystickButton yButton = new JoystickButton(gamepad, 3);
+		JoystickButton leftIndex = new JoystickButton(gamepad, 4);
+		JoystickButton rightIndex = new JoystickButton(gamepad, 5);
+		JoystickButton backButton = new JoystickButton(gamepad, 6);
+		JoystickButton startButton = new JoystickButton(gamepad, 7);
+		JoystickButton leftJoyButton = new JoystickButton(gamepad, 8);
+		JoystickButton rightJoyButton = new JoystickButton(gamepad, 9);
+
 		
 	}
     
