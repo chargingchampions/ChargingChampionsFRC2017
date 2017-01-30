@@ -27,12 +27,14 @@ public class RobotMap {
 		public static final int SOLENOID_5 = 5;
 		public static final int SOLENOID_6 = 6;
 		public static final int SOLENOID_7 = 7;
+		public static final int COMPRESSOR = 0;
 	}
 	
 	public static class Pwm {
 		//Servos for camera 360
 		public static final int X_AXIS_CAM = 8;
 		public static final int Y_AXIS_CAM = 9;
+		public static final int GEAR_SERVO = 0;
 	}
 	
 }

@@ -12,7 +12,7 @@ public class Vision extends Subsystem{
 	Servo yServo = new Servo(RobotMap.Pwm.Y_AXIS_CAM);
 	
 	public void getCameraFeed() {
-		cam0.setQuality(100);
+		cam0.setQuality(25);
 		cam0.setSize(100);
 		cam0.startAutomaticCapture();	
 	}

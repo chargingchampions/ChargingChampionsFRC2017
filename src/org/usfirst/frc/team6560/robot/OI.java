@@ -20,7 +20,7 @@ public class OI {
 //		JoystickButton rightThumb = new JoystickButton(gamepad, 2);
 //		JoystickButton button3 = new JoystickButton(gamepad, 3);
 //		JoystickButton button4 = new JoystickButton(gamepad, 4);
-//		JoystickButton button5 = new JoystickButton(gamepad, 5);
+//		Joystickaew JoystickButton(gamepad, 5);
 //		
 //		//Left hand buttons
 //		JoystickButton button6 = new JoystickButton(gamepad, 6);
