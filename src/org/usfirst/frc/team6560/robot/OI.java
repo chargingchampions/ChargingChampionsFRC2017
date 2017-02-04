@@ -31,18 +31,16 @@ public class OI {
 //		JoystickButton button11 = new JoystickButton(gamepad, 11);
 //		JoystickButton button12 = new JoystickButton(gamepad, 12);
 //		
-		JoystickButton aButton = new JoystickButton(gamepad, 0);
-		JoystickButton bButton = new JoystickButton(gamepad, 1);
-		JoystickButton xButton = new JoystickButton(gamepad, 2);
-		JoystickButton yButton = new JoystickButton(gamepad, 3);
-		JoystickButton leftIndex = new JoystickButton(gamepad, 4);
-		JoystickButton rightIndex = new JoystickButton(gamepad, 5);
-		JoystickButton backButton = new JoystickButton(gamepad, 6);
-		JoystickButton startButton = new JoystickButton(gamepad, 7);
-		JoystickButton leftJoyButton = new JoystickButton(gamepad, 8);
-		JoystickButton rightJoyButton = new JoystickButton(gamepad, 9);
-
-		
+		JoystickButton aButton = new JoystickButton(gamepad, 1);
+		JoystickButton bButton = new JoystickButton(gamepad, 2);
+		JoystickButton xButton = new JoystickButton(gamepad, 3);
+		JoystickButton yButton = new JoystickButton(gamepad, 4);
+		JoystickButton leftIndex = new JoystickButton(gamepad, 5);
+		JoystickButton rightIndex = new JoystickButton(gamepad, 6);
+		JoystickButton backButton = new JoystickButton(gamepad, 7);
+		JoystickButton startButton = new JoystickButton(gamepad, 8);
+		JoystickButton leftJoyButton = new JoystickButton(gamepad, 9);
+		JoystickButton rightJoyButton = new JoystickButton(gamepad, 10);
 	}
     
 	public double getLeftYAxis() {

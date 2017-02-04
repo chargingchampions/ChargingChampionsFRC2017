@@ -1,16 +1,15 @@
 package org.usfirst.frc.team6560.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team6560.robot.Robot;
 
 /**
- * Pushes/Pulls pistons in Gear Mission to deploy gears
+ *
  */
-public class DropGears extends Command {
+public class CollectGear extends Command {
 
-	
-    public DropGears() {
-    	requires(Robot.gearMission);
+    public CollectGear() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -19,7 +18,6 @@ public class DropGears extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.gearMission.dropGears();
     }
 
     // Make this return true when this Command no longer needs to run execute()

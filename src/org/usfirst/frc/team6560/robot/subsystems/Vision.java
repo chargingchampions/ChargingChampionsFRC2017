@@ -1,6 +1,6 @@
 package org.usfirst.frc.team6560.robot.subsystems;
 
-import edu.wpi.first.wpilibj.vision.*;
+//import edu.wpi.first.wpilibj.vision.*;
 import edu.wpi.first.wpilibj.command.*;
 import org.usfirst.frc.team6560.robot.RobotMap;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -11,10 +11,7 @@ public class Vision extends Subsystem{
 	Servo xServo = new Servo(RobotMap.Pwm.X_AXIS_CAM);
 	Servo yServo = new Servo(RobotMap.Pwm.Y_AXIS_CAM);
 	
-	public void getCameraFeed() {
-		cam0.setQuality(25);
-		cam0.setSize(100);
-		cam0.startAutomaticCapture();	
+	public void getCameraFeed() {	
 	}
 	
 	public void control360(double x, double y) {

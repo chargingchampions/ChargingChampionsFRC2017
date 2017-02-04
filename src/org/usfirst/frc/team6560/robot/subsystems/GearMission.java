@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.*;
 import org.usfirst.frc.team6560.robot.RobotMap;
 import org.usfirst.frc.team6560.robot.commands.*;
+import org.usfirst.frc.team6560.robot.OI;
 
 public class GearMission extends Subsystem {
     
@@ -15,18 +16,27 @@ public class GearMission extends Subsystem {
 	Solenoid solenoid_7 = new Solenoid(RobotMap.Can.SOLENOID_7);
 	Compressor compressor_0 = new Compressor(RobotMap.Can.COMPRESSOR);
 	Servo rampServo = new Servo(RobotMap.Pwm.GEAR_SERVO);
+	//OI oi = new OI();
+	
+	//Variables initialized once for trigger for dropGears
 
     public void initDefaultCommand() {
+    	compressor_0.start();
         setDefaultCommand(new DropGears());
     }
     
-    public void dropGears(boolean bool) {
+    public void dropGears() {
     	compressor_0.start();
-    	solenoid_5.set(bool);
-    	solenoid_6.set(bool);
+    	//previousButton = currentButton;
+    	//currentButton = oi.gamepad.getRawButton(5);
+    	//if(currentButton && !previousButton)
+    		//gearStatus = !gearStatus;
+    	solenoid_5.set(true);
+    	solenoid_6.set(true);
     }
     
     public void collectGear(boolean bool) {
+    	compressor_0.start();
     	//TODO: Find values for the correct angles
     	if(bool)
     		rampServo.set(0);

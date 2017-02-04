@@ -1,8 +1,8 @@
 package org.usfirst.frc.team6560.robot.subsystems;
 
-import edu.wpi.first.wpilibj.*;
+import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.RobotDrive.*;
+import edu.wpi.first.wpilibj.RobotDrive;
 import org.usfirst.frc.team6560.robot.RobotMap.*;
 import org.usfirst.frc.team6560.robot.commands.*;
 
