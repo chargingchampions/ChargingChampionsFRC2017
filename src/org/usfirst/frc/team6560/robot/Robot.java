@@ -19,7 +19,7 @@ public class Robot extends IterativeRobot {
 	public static Drive drive;
 	public static Vision vision;
 	public static GearMission gearMission;
-	private static SendableChooser chooser;
+	//private static SendableChooser chooser;
 	private CameraServer cam0 = CameraServer.getInstance();
 
 	
@@ -28,11 +28,9 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	oi = new OI();
     	drive = new Drive();
-		chooser = new SendableChooser();
+		//chooser = new SendableChooser();
 		vision = new Vision();
 		gearMission = new GearMission();
-		cam0.setQuality(50);
-		cam0.setSize(100);
 		cam0.startAutomaticCapture();	
 
     }
