@@ -3,6 +3,7 @@ package org.usfirst.frc.team6560.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team6560.robot.RobotMap;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Servo;
 
@@ -14,12 +15,14 @@ public class GearMission extends Subsystem {
 	Solenoid solenoid_0 = new Solenoid(RobotMap.Can.SOLENOID_0);
 	public Solenoid solenoid_1 = new Solenoid(RobotMap.Can.SOLENOID_1);
 	public Solenoid solenoid_2 = new Solenoid(RobotMap.Can.SOLENOID_2);
-	Solenoid solenoid_3 = new Solenoid(RobotMap.Can.SOLENOID_3);
-	Solenoid solenoid_4 = new Solenoid(RobotMap.Can.SOLENOID_4);
-	Solenoid solenoid_5 = new Solenoid(RobotMap.Can.SOLENOID_5);
-	Solenoid solenoid_6 = new Solenoid(RobotMap.Can.SOLENOID_6);
-	Solenoid solenoid_7 = new Solenoid(RobotMap.Can.SOLENOID_7);
+	public Solenoid solenoid_3 = new Solenoid(RobotMap.Can.SOLENOID_3);
+	public Solenoid solenoid_4 = new Solenoid(RobotMap.Can.SOLENOID_4);
+	public Solenoid solenoid_5 = new Solenoid(RobotMap.Can.SOLENOID_5);
+	public Solenoid solenoid_6 = new Solenoid(RobotMap.Can.SOLENOID_6);
+	public Solenoid solenoid_7 = new Solenoid(RobotMap.Can.SOLENOID_7);
 	Compressor compressor_0 = new Compressor(RobotMap.Can.COMPRESSOR);
+
+	public AnalogInput ultrasound = new AnalogInput(0);
 	public Servo gearServo = new Servo(RobotMap.Pwm.GEAR_SERVO);
 	
     public void initDefaultCommand() {

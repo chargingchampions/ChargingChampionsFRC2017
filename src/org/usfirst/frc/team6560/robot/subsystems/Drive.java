@@ -13,7 +13,7 @@ public class Drive extends Subsystem {
     CANTalon rightTopMotor = new CANTalon(Can.RIGHT_FWD_MOTOR);
     CANTalon rightBottomMotor = new CANTalon(Can.RIGHT_REAR_MOTOR);
     RobotDrive drivetrain = new RobotDrive(leftTopMotor, leftBottomMotor, rightTopMotor, rightBottomMotor);
-    ADIS16448_IMU imu = new ADIS16448_IMU();
+    public ADIS16448_IMU imu = new ADIS16448_IMU();
 
     public void driveWithJoysticks(double left, double right) {
     	drivetrain.tankDrive(left, right);

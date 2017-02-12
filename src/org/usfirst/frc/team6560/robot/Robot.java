@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
 
@@ -48,6 +49,9 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
     	if(autonomousCommand != null)
     		autonomousCommand.cancel();
+    	SmartDashboard.putNumber("Ultrasound Distance", gearMission.ultrasound.getVoltage());
+    	SmartDashboard.putNumber("Angle", drive.imu.getAngle());
+    	SmartDashboard.putNumber("Acceleration", drive.imu.getAccelX());
     }
 
     public void teleopPeriodic() {
