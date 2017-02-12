@@ -5,28 +5,40 @@ import org.usfirst.frc.team6560.robot.*;
 
 /**
  * Manipulates gearbox to shift gears to a higher speed.
- * Returns to original speed when stopped
  */
 public class ShiftGearbox extends Command {
+	
+	boolean complete = false;
+	boolean shifting;
 
-    public ShiftGearbox() {
+    public ShiftGearbox(boolean isShifting) {
     	requires(Robot.gearMission);
+    	shifting = isShifting;
+    	complete = false;
     }
 
     protected void initialize() {
+    	complete = false;
     }
 
     protected void execute() {
-    	Robot.gearMission.shiftGears();
+    	if(!complete) {
+    		if(shifting) {
+    			Robot.gearMission.shiftGearsHigh();
+    			complete = true;
+    		}
+    		else {
+    			Robot.gearMission.shiftGearsLow();
+    			complete = true;
+    		}
+    	}
     }
 
     protected boolean isFinished() {
-        return false;
+        return complete;
     }
 
     protected void end() {
-    	Robot.gearMission.solenoid_1.set(false);
-    	Robot.gearMission.solenoid_2.set(false);
     }
 
     protected void interrupted() {

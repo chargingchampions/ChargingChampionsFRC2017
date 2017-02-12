@@ -23,9 +23,9 @@ public class OI {
 		JoystickButton rightJoyButton = new JoystickButton(gamepad, 10);
 		
 		//Commands
-		aButton.toggleWhenPressed(new DropGear());
-		leftIndex.toggleWhenPressed(new ShiftGearbox());
-		bButton.toggleWhenPressed(new CollectGear());
+		aButton.whenPressed(new DropGear());
+		leftIndex.whenPressed(new ShiftGearbox(true));
+		rightIndex.whenPressed(new ShiftGearbox(false));
 	}
 
 	//Axes

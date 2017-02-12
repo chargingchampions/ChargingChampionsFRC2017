@@ -18,15 +18,14 @@ public class DropGear extends Command {
     }
 
     protected void execute() {
-    	Robot.gearMission.dropGears();
+    	Robot.gearMission.dropGear();
     }
 
     protected boolean isFinished() {
-    	return false;
+    	return true;
     }
 
     protected void end() {
-    	Robot.gearMission.stop();
     }
 
     protected void interrupted() {

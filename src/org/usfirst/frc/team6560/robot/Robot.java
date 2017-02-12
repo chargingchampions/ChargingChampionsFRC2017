@@ -23,12 +23,12 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	
     public void robotInit() {
-    	oi = new OI();
     	drive = new Drive();
 		chooser = new SendableChooser();
 		gearMission = new GearMission();
 		cam0.startAutomaticCapture();	
-
+		oi = new OI();
+		gearMission.compressor_0.start();
     }
 	
     public void disabledInit(){
@@ -49,13 +49,13 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
     	if(autonomousCommand != null)
     		autonomousCommand.cancel();
-    	SmartDashboard.putNumber("Ultrasound Distance", gearMission.ultrasound.getVoltage());
-    	SmartDashboard.putNumber("Angle", drive.imu.getAngle());
-    	SmartDashboard.putNumber("Acceleration", drive.imu.getAccelX());
     }
 
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();;
+        Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Ultrasound Distance", gearMission.ultrasound.getVoltage());
+    	SmartDashboard.putNumber("Angle", drive.imu.getAngle());
+    	SmartDashboard.putNumber("Acceleration", drive.imu.getAccelX());
     }
     
     public void testPeriodic() {
