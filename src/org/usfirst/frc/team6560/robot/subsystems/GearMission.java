@@ -1,47 +1,70 @@
 package org.usfirst.frc.team6560.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.*;
 import org.usfirst.frc.team6560.robot.RobotMap;
-import org.usfirst.frc.team6560.robot.commands.*;
-import org.usfirst.frc.team6560.robot.OI;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Servo;
 
 public class GearMission extends Subsystem {
-    
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    /*
+     * Solenoids 1 and 2 for Gearbox shifting
+     * Solenoids 0 and 3 for Gear Mission
+     */
+	Solenoid solenoid_0 = new Solenoid(RobotMap.Can.SOLENOID_0);
+	public Solenoid solenoid_1 = new Solenoid(RobotMap.Can.SOLENOID_1);
+	public Solenoid solenoid_2 = new Solenoid(RobotMap.Can.SOLENOID_2);
+	Solenoid solenoid_3 = new Solenoid(RobotMap.Can.SOLENOID_3);
 	Solenoid solenoid_4 = new Solenoid(RobotMap.Can.SOLENOID_4);
 	Solenoid solenoid_5 = new Solenoid(RobotMap.Can.SOLENOID_5);
 	Solenoid solenoid_6 = new Solenoid(RobotMap.Can.SOLENOID_6);
 	Solenoid solenoid_7 = new Solenoid(RobotMap.Can.SOLENOID_7);
 	Compressor compressor_0 = new Compressor(RobotMap.Can.COMPRESSOR);
-	Servo rampServo = new Servo(RobotMap.Pwm.GEAR_SERVO);
-	//OI oi = new OI();
+	public Servo gearServo = new Servo(RobotMap.Pwm.GEAR_SERVO);
 	
-	//Variables initialized once for trigger for dropGears
-
     public void initDefaultCommand() {
     	compressor_0.start();
-        setDefaultCommand(new DropGears());
     }
     
     public void dropGears() {
+    	//TODO: Find corresponding solenoids
     	compressor_0.start();
-    	//previousButton = currentButton;
-    	//currentButton = oi.gamepad.getRawButton(5);
-    	//if(currentButton && !previousButton)
-    		//gearStatus = !gearStatus;
-    	solenoid_5.set(true);
-    	solenoid_6.set(true);
+    	solenoid_0.set(true);
+    	solenoid_1.set(true);
+    	solenoid_2.set(true);
+    	solenoid_3.set(true);
     }
     
-    public void collectGear(boolean bool) {
+    public void collectGear() {
+    	//TODO: Find correct Servo angle
+    	gearServo.set(0);
+    }
+    
+    public void test(boolean bool, boolean bool2, boolean bool3, boolean bool4) {
+    	//Tests solenoids 0 - 4 to ensure that they work
     	compressor_0.start();
-    	//TODO: Find values for the correct angles
-    	if(bool)
-    		rampServo.set(0);
-    	else
-    		rampServo.set(0);
+    	solenoid_0.set(bool);
+    	solenoid_1.set(bool2);
+    	solenoid_2.set(bool3);
+    	solenoid_3.set(bool4);
+    }
+    
+    public void shiftGears() {
+    	compressor_0.start();
+    	solenoid_1.set(true);
+    	solenoid_2.set(true);
+    }
+    
+    public void stop() {
+    	compressor_0.stop();
+    	solenoid_0.set(false);
+    	solenoid_1.set(false);
+    	solenoid_2.set(false);
+    	solenoid_3.set(false);
+    	solenoid_4.set(false);
+    	solenoid_5.set(false);
+    	solenoid_6.set(false);
+    	solenoid_7.set(false);
     }
 }
 

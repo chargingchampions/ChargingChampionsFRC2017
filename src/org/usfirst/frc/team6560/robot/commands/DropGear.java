@@ -4,27 +4,29 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6560.robot.Robot;
 
 /**
- * Sets the servo on the Gear Mission to tilt in order to collect gear
- * Returns to default position when stopped
+ * Pulls pistons in Gear Mission to deploy gears
+ * Pushes pistons back to close Gear Mission when stopped
  */
-public class CollectGear extends Command {
-
-    public CollectGear() {
-        requires(Robot.gearMission);
+public class DropGear extends Command {
+	
+    public DropGear() {
+    	requires(Robot.gearMission);
     }
+
     protected void initialize() {
+    	
     }
 
     protected void execute() {
-    	Robot.gearMission.collectGear();
+    	Robot.gearMission.dropGears();
     }
 
     protected boolean isFinished() {
-        return false;
+    	return false;
     }
 
     protected void end() {
-    	Robot.gearMission.gearServo.set(0);
+    	Robot.gearMission.stop();
     }
 
     protected void interrupted() {

@@ -3,6 +3,9 @@ package org.usfirst.frc.team6560.robot.commands;
 import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Tank Drive robot with two joystick axes
+ */
 public class DriveWithJoysticks extends Command {
 
     public DriveWithJoysticks() {
@@ -13,7 +16,7 @@ public class DriveWithJoysticks extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.driveWithJoysticks(Robot.oi.getRightYAxis(), Robot.oi.getLeftYAxis());
+    	Robot.drive.driveWithJoysticks(-0.75 * Robot.oi.getLeftYAxis(), -0.75 * Robot.oi.getRightYAxis());
     }
 
     protected boolean isFinished() {
