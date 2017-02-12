@@ -37,9 +37,14 @@ public class GearMission extends Subsystem {
     	solenoid_7.set(false);
     }
     
-    public void dropGear() {
+    public void openFlaps() {
     	solenoid_0.set(true);
     	solenoid_3.set(true);
+    }
+    
+    public void closeFlaps() {
+    	solenoid_0.set(false);
+    	solenoid_3.set(false);
     }
     
     public void collectGear() {

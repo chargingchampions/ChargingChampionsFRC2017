@@ -7,9 +7,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 	public final Joystick gamepad;
+	public final Joystick driverstation;
 	
 	public OI() {
 		gamepad = new Joystick(RobotMap.Joysticks.JOYSTICK1);
+		driverstation = new Joystick(RobotMap.Joysticks.DRV_STATION);
 		
 		JoystickButton aButton = new JoystickButton(gamepad, 1);
 		JoystickButton bButton = new JoystickButton(gamepad, 2);
@@ -22,8 +24,12 @@ public class OI {
 		JoystickButton leftJoyButton = new JoystickButton(gamepad, 9);
 		JoystickButton rightJoyButton = new JoystickButton(gamepad, 10);
 		
+		JoystickButton trigger = new JoystickButton(driverstation, 1);
+		JoystickButton rightThumb = new JoystickButton(driverstation, 2);
+		
 		//Commands
-		aButton.whenPressed(new DropGear());
+		trigger.whenPressed(new DropGear(true));
+		rightThumb.whenPressed(new DropGear(false));
 		leftIndex.whenPressed(new ShiftGearbox(true));
 		rightIndex.whenPressed(new ShiftGearbox(false));
 	}

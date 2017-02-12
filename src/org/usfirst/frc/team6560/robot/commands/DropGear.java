@@ -9,16 +9,30 @@ import org.usfirst.frc.team6560.robot.Robot;
  */
 public class DropGear extends Command {
 	
-    public DropGear() {
+	boolean complete = false;
+	boolean opening;
+	
+    public DropGear(boolean isOpening) {
     	requires(Robot.gearMission);
+    	opening = isOpening;
+    	complete = false;
     }
 
     protected void initialize() {
-    	
+    	complete = false;
     }
 
     protected void execute() {
-    	Robot.gearMission.dropGear();
+    	if(!complete) {
+    		if(opening) {
+    			Robot.gearMission.openFlaps();
+    			complete = true;
+    		}
+    		else {
+    			Robot.gearMission.closeFlaps();
+    			complete = true;
+    		}
+    	}
     }
 
     protected boolean isFinished() {
