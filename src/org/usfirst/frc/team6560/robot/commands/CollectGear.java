@@ -8,23 +8,38 @@ import org.usfirst.frc.team6560.robot.Robot;
  * Returns to default position when stopped
  */
 public class CollectGear extends Command {
+	
+	boolean turning;
+	boolean complete = false;
 
-    public CollectGear() {
+    public CollectGear(boolean isTurning) {
         requires(Robot.gearMission);
+        turning = isTurning;
+        complete = false;
     }
+    
     protected void initialize() {
+    	complete = false;
     }
 
     protected void execute() {
-    	Robot.gearMission.collectGear();
+    	if(!complete) {
+    		if(turning) {
+    			Robot.gearMission.collectGear();
+    			complete = true;
+    		}
+    		else {
+    			Robot.gearMission.resetServo();
+    			complete = true;
+    		}
+    	}
     }
 
     protected boolean isFinished() {
-        return false;
+        return complete;
     }
 
     protected void end() {
-    	Robot.gearMission.gearServo.set(0);
     }
 
     protected void interrupted() {

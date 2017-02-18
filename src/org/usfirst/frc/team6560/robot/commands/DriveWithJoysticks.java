@@ -16,15 +16,15 @@ public class DriveWithJoysticks extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.driveWithJoysticks(-0.75 * Robot.oi.getLeftYAxis(), -0.75 * Robot.oi.getRightYAxis());
+    	Robot.drive.driveWithJoysticks(-0.4 * Robot.oi.getLeftYAxis(), -0.4 * Robot.oi.getRightYAxis());
     }
 
     protected boolean isFinished() {
-        return false;
+        return Robot.oi.getPOV() != -1;
     }
 
     protected void end() {
-    	Robot.drive.stop();
+    	new DriveWithPOV();
     }
 
     protected void interrupted() {

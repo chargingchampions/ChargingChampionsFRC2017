@@ -26,12 +26,16 @@ public class OI {
 		
 		JoystickButton trigger = new JoystickButton(driverstation, 1);
 		JoystickButton rightThumb = new JoystickButton(driverstation, 2);
+		JoystickButton button3 = new JoystickButton(driverstation, 3);
+		JoystickButton button4 = new JoystickButton(driverstation, 4);
 		
 		//Commands
 		trigger.whenPressed(new DropGear(true));
 		rightThumb.whenPressed(new DropGear(false));
 		leftIndex.whenPressed(new ShiftGearbox(true));
 		rightIndex.whenPressed(new ShiftGearbox(false));
+		button3.whenPressed(new CollectGear(true));
+		button3.whenReleased(new CollectGear(false));
 	}
 
 	//Axes
@@ -52,6 +56,21 @@ public class OI {
 	}
 	public double getRightYAxis() {
 		return gamepad.getRawAxis(5);
+	}
+	public int getPOV() {
+		return gamepad.getPOV();
+	}
+	public double getDSXAxis() {
+		return driverstation.getRawAxis(0);
+	}
+	public double getDSYAxis() {
+		return driverstation.getRawAxis(1);
+	}
+	public double getDSZAxis() {
+		return driverstation.getRawAxis(2);
+	}
+	public double getDSSlider() {
+		return driverstation.getRawAxis(3);
 	}
 }
 

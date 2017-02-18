@@ -19,6 +19,19 @@ public class Drive extends Subsystem {
     	drivetrain.tankDrive(left, right);
     }
     
+    public void driveWithPOV(int angle) {
+    	switch(angle) {
+    	case 0:
+    		drivetrain.tankDrive(-0.3, -0.3);
+    	case 90:
+    		drivetrain.tankDrive(-0.15, 0.15);
+    	case 180:
+    		drivetrain.tankDrive(0.3, 0.3);
+    	case 270:
+    		drivetrain.tankDrive(0.15, -0.15);
+    	}
+    }
+    
     public void driveStraight() {
     }
     

@@ -21,7 +21,7 @@ public class GearMission extends Subsystem {
 	public Solenoid solenoid_6 = new Solenoid(RobotMap.Can.SOLENOID_6);
 	public Solenoid solenoid_7 = new Solenoid(RobotMap.Can.SOLENOID_7);
 	public Compressor compressor_0 = new Compressor(RobotMap.Can.COMPRESSOR);
-
+	public boolean gearShiftStatus;
 	public AnalogInput ultrasound = new AnalogInput(0);
 	public Servo gearServo = new Servo(RobotMap.Pwm.GEAR_SERVO);
 	
@@ -49,7 +49,11 @@ public class GearMission extends Subsystem {
     
     public void collectGear() {
     	//TODO: Find correct Servo angle
-    	gearServo.set(0);
+    	gearServo.set(0.45);
+    }
+    
+    public void resetServo() {
+    	gearServo.set(1.0);
     }
     
     public void test(boolean bool, boolean bool2, boolean bool3, boolean bool4) {
@@ -63,11 +67,19 @@ public class GearMission extends Subsystem {
     public void shiftGearsHigh() {
     	solenoid_1.set(true);
     	solenoid_2.set(true);
+    	gearShiftStatus = true;
     }
     
     public void shiftGearsLow() {
     	solenoid_1.set(false);
     	solenoid_2.set(false);
+    	gearShiftStatus = false;
+    }
+    
+    public String getGearShiftStatus() {
+    	if(gearShiftStatus)
+    		return "HIGH GEAR";
+    	return "LOW GEAR";
     }
     
 }

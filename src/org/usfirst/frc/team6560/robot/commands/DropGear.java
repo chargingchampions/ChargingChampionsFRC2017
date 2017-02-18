@@ -17,7 +17,7 @@ public class DropGear extends Command {
     	opening = isOpening;
     	complete = false;
     }
-
+    
     protected void initialize() {
     	complete = false;
     }
@@ -36,7 +36,7 @@ public class DropGear extends Command {
     }
 
     protected boolean isFinished() {
-    	return true;
+    	return complete;
     }
 
     protected void end() {

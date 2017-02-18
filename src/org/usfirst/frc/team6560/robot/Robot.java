@@ -26,7 +26,7 @@ public class Robot extends IterativeRobot {
     	drive = new Drive();
 		chooser = new SendableChooser();
 		gearMission = new GearMission();
-		cam0.startAutomaticCapture();	
+		cam0.startAutomaticCapture().setResolution(720, 480);	
 		oi = new OI();
 		gearMission.compressor_0.start();
     }
@@ -56,6 +56,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Ultrasound Distance", gearMission.ultrasound.getVoltage());
     	SmartDashboard.putNumber("Angle", drive.imu.getAngle());
     	SmartDashboard.putNumber("Acceleration", drive.imu.getAccelX());
+    	SmartDashboard.putString("Gear status", gearMission.getGearShiftStatus());
     }
     
     public void testPeriodic() {
