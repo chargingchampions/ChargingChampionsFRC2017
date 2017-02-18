@@ -42,33 +42,43 @@ public class OI {
 	public double getLeftXAxis() {
 		return gamepad.getRawAxis(0);
 	}
+	
 	public double getLeftYAxis() {
 		return gamepad.getRawAxis(1);
 	}	
+	
 	public double getLeftTrigger() {
 		return gamepad.getRawAxis(2);
 	}
+	
 	public double getRightTrigger() {
 		return gamepad.getRawAxis(3);
 	}
+	
 	public double getRightXAxis() {
 		return gamepad.getRawAxis(4);
 	}
+	
 	public double getRightYAxis() {
 		return gamepad.getRawAxis(5);
 	}
+	
 	public int getPOV() {
 		return gamepad.getPOV();
 	}
+	
 	public double getDSXAxis() {
 		return driverstation.getRawAxis(0);
 	}
+	
 	public double getDSYAxis() {
 		return driverstation.getRawAxis(1);
 	}
+	
 	public double getDSZAxis() {
 		return driverstation.getRawAxis(2);
 	}
+	
 	public double getDSSlider() {
 		return driverstation.getRawAxis(3);
 	}

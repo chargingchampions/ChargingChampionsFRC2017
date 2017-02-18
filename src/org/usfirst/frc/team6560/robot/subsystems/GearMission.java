@@ -16,14 +16,14 @@ public class GearMission extends Subsystem {
 	public Solenoid solenoid_1 = new Solenoid(RobotMap.Can.SOLENOID_1);
 	public Solenoid solenoid_2 = new Solenoid(RobotMap.Can.SOLENOID_2);
 	public Solenoid solenoid_3 = new Solenoid(RobotMap.Can.SOLENOID_3);
-	public Solenoid solenoid_4 = new Solenoid(RobotMap.Can.SOLENOID_4);
-	public Solenoid solenoid_5 = new Solenoid(RobotMap.Can.SOLENOID_5);
-	public Solenoid solenoid_6 = new Solenoid(RobotMap.Can.SOLENOID_6);
-	public Solenoid solenoid_7 = new Solenoid(RobotMap.Can.SOLENOID_7);
 	public Compressor compressor_0 = new Compressor(RobotMap.Can.COMPRESSOR);
-	public boolean gearShiftStatus;
 	public AnalogInput ultrasound = new AnalogInput(0);
 	public Servo gearServo = new Servo(RobotMap.Pwm.GEAR_SERVO);
+	public boolean gearShiftStatus;
+	
+	public GearMission() {
+		compressor_0.start();
+	}
 	
     public void initDefaultCommand() {
     	compressor_0.start();
@@ -31,10 +31,6 @@ public class GearMission extends Subsystem {
     	solenoid_1.set(false);
     	solenoid_2.set(false);
     	solenoid_3.set(false);
-    	solenoid_4.set(false);
-    	solenoid_5.set(false);
-    	solenoid_6.set(false);
-    	solenoid_7.set(false);
     }
     
     public void openFlaps() {
@@ -56,13 +52,13 @@ public class GearMission extends Subsystem {
     	gearServo.set(1.0);
     }
     
-    public void test(boolean bool, boolean bool2, boolean bool3, boolean bool4) {
-    	//Tests solenoids 0 - 4 to ensure that they work
-    	solenoid_0.set(bool);
-    	solenoid_1.set(bool2);
-    	solenoid_2.set(bool3);
-    	solenoid_3.set(bool4);
-    }
+//    public void test(boolean bool, boolean bool2, boolean bool3, boolean bool4) {
+//    	//Tests solenoids 0 - 4 to ensure that they work
+//    	solenoid_0.set(bool);
+//    	solenoid_1.set(bool2);
+//    	solenoid_2.set(bool3);
+//    	solenoid_3.set(bool4);
+//    }
     
     public void shiftGearsHigh() {
     	solenoid_1.set(true);

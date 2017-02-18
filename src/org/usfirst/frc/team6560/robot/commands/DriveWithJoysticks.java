@@ -20,13 +20,14 @@ public class DriveWithJoysticks extends Command {
     }
 
     protected boolean isFinished() {
-        return Robot.oi.getPOV() != -1;
+        return false;
     }
 
     protected void end() {
-    	new DriveWithPOV();
+    	Robot.drive.stop();
     }
 
     protected void interrupted() {
+    	end();
     }
 }

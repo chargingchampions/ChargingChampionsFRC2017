@@ -4,8 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6560.robot.Robot;
 
 /**
- * Sets the servo on the Gear Mission to tilt in order to collect gear
- * Returns to default position when stopped
+ * Manipulates the servo on the Gear Mission to tilt/untilt to collect and secure gear
  */
 public class CollectGear extends Command {
 	
@@ -25,11 +24,11 @@ public class CollectGear extends Command {
     protected void execute() {
     	if(!complete) {
     		if(turning) {
-    			Robot.gearMission.collectGear();
+    			Robot.gearMission.resetServo();
     			complete = true;
     		}
     		else {
-    			Robot.gearMission.resetServo();
+    			Robot.gearMission.collectGear();
     			complete = true;
     		}
     	}

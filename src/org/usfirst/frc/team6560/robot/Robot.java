@@ -28,7 +28,6 @@ public class Robot extends IterativeRobot {
 		gearMission = new GearMission();
 		cam0.startAutomaticCapture().setResolution(720, 480);	
 		oi = new OI();
-		gearMission.compressor_0.start();
     }
 	
     public void disabledInit(){
@@ -54,8 +53,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Ultrasound Distance", gearMission.ultrasound.getVoltage());
-    	SmartDashboard.putNumber("Angle", drive.imu.getAngle());
-    	SmartDashboard.putNumber("Acceleration", drive.imu.getAccelX());
+        SmartDashboard.putNumber("Gyro angle", drive.gyro.getAngle());
     	SmartDashboard.putString("Gear status", gearMission.getGearShiftStatus());
     }
     
