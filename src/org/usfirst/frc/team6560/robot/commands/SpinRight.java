@@ -4,19 +4,19 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Tank Drive robot with two joystick axes
+ * Spins the Robot clockwise
  */
-public class DriveWithJoysticks extends Command {
-
-    public DriveWithJoysticks() {
+public class SpinRight extends Command {
+	
+    public SpinRight() {
         requires(Robot.drive);
     }
 
     protected void initialize() {
     }
-
+    
     protected void execute() {
-    	Robot.drive.driveWithJoysticks(-0.6 * Robot.oi.getLeftYAxis(), -0.6 * Robot.oi.getRightYAxis());
+    	Robot.drive.spinRight();
     }
 
     protected boolean isFinished() {

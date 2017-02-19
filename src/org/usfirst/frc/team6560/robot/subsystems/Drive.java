@@ -14,6 +14,8 @@ public class Drive extends Subsystem {
     CANTalon rightBottomMotor = new CANTalon(Can.RIGHT_REAR_MOTOR);
     RobotDrive drivetrain = new RobotDrive(leftTopMotor, leftBottomMotor, rightTopMotor, rightBottomMotor);
     public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+    
+    double kP = 0.03;
 
     public Drive() {
     	gyro.calibrate();
@@ -23,29 +25,30 @@ public class Drive extends Subsystem {
     	drivetrain.tankDrive(left, right);
     }
     
-    public void driveWithPOV(int angle) {
-    	switch(angle) {
-    	case 0:
-    		drivetrain.tankDrive(-0.5, -0.5);
-    	case 90:
-    		drivetrain.tankDrive(-0.3, 0.3);
-    	case 180:
-    		drivetrain.tankDrive(0.5, 0.5);
-    	case 270:
-    		drivetrain.tankDrive(0.3, -0.3);
-    	}
-    }
-    
     public void driveStraight() {
+    	gyro.reset();
+    	double angle = gyro.getAngle();
+    	drivetrain.drive(1.0, kP * angle);
     }
     
     public void driveStraightBackwards() {
+    	gyro.reset();
+    	double angle = gyro.getAngle();
+    	drivetrain.drive(-1.0, kP * angle);
     }
     
-    public void turn90DegreesLeft() {
+    public void spinLeft() {
+    	leftTopMotor.set(0.7);
+    	leftBottomMotor.set(0.7);
+    	rightTopMotor.set(0.7);
+    	rightBottomMotor.set(0.7);
     }
     
-    public void turn90DegreesRight() {
+    public void spinRight() {
+    	leftTopMotor.set(-0.7);
+    	leftBottomMotor.set(-0.7);
+    	rightTopMotor.set(-0.7);
+    	rightBottomMotor.set(-0.7);
     }
     
     public void turnToAngle(int angle) {

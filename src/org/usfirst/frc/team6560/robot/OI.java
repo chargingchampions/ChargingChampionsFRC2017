@@ -31,11 +31,15 @@ public class OI {
 		
 		//Commands
 		trigger.whenPressed(new DropGear(true));
-		rightThumb.whenPressed(new DropGear(false));
+		trigger.whenReleased(new DropGear(false));
+		rightThumb.whenPressed(new CollectGear(true));
+		rightThumb.whenReleased(new CollectGear(false));
 		leftIndex.whenPressed(new ShiftGearbox(true));
 		rightIndex.whenPressed(new ShiftGearbox(false));
-		button3.whenPressed(new CollectGear(true));
-		button3.whenReleased(new CollectGear(false));
+		yButton.whileHeld(new DriveStraight());
+		aButton.whileHeld(new DriveStraightBackwards());
+		xButton.whileHeld(new SpinLeft());
+		bButton.whileHeld(new SpinRight());
 	}
 
 	//Axes

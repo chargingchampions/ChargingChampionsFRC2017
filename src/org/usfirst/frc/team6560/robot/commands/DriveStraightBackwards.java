@@ -4,11 +4,11 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Tank Drive robot with two joystick axes
+ * Drive straight with the gyro
  */
-public class DriveWithJoysticks extends Command {
+public class DriveStraightBackwards extends Command {
 
-    public DriveWithJoysticks() {
+    public DriveStraightBackwards() {
         requires(Robot.drive);
     }
 
@@ -16,7 +16,7 @@ public class DriveWithJoysticks extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.driveWithJoysticks(-0.6 * Robot.oi.getLeftYAxis(), -0.6 * Robot.oi.getRightYAxis());
+    	Robot.drive.driveStraightBackwards();
     }
 
     protected boolean isFinished() {
