@@ -1,18 +1,33 @@
 package org.usfirst.frc.team6560.robot.subsystems;
 
+import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team6560.robot.RobotMap.Can;
+import org.usfirst.frc.team6560.robot.commands.*;
 
 /**
  *
  */
 public class Hanger extends Subsystem {
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    CANTalon hangerMotor = new CANTalon(Can.MOTOR);
+   
+    public void runHanger() {
+    	hangerMotor.set(-0.7);
+    }
+    
+    public void stopHanger() {
+    	hangerMotor.set(0.0);
+    }
+    
+    public void runHangerBackwards() {
+    	hangerMotor.set(0.7);
+    }
 
+    public void runHangerSlider(double num) {
+    	hangerMotor.set(num);
+    }
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
 }
 

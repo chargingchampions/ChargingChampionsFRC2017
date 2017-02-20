@@ -12,6 +12,10 @@ public class RobotMap {
 		public static final int RIGHT_FWD_MOTOR = 14;
 		public static final int RIGHT_REAR_MOTOR = 15;
 		
+		//Hanger Motors
+		public static final int MOTOR = 61;
+		public static final int MOTOR1 = 62;
+		
 		//Pneumatics
 		public static final int SOLENOID_0 = 0;
 		public static final int SOLENOID_1 = 1;

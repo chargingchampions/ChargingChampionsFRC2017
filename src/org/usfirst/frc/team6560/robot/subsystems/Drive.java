@@ -28,27 +28,27 @@ public class Drive extends Subsystem {
     public void driveStraight() {
     	gyro.reset();
     	double angle = gyro.getAngle();
-    	drivetrain.drive(1.0, kP * angle);
+    	drivetrain.drive(0.7, kP * angle);
     }
     
     public void driveStraightBackwards() {
     	gyro.reset();
     	double angle = gyro.getAngle();
-    	drivetrain.drive(-1.0, kP * angle);
+    	drivetrain.drive(-0.7, kP * angle);
     }
     
     public void spinLeft() {
-    	leftTopMotor.set(0.7);
-    	leftBottomMotor.set(0.7);
-    	rightTopMotor.set(0.7);
-    	rightBottomMotor.set(0.7);
+    	leftTopMotor.set(0.5);
+    	leftBottomMotor.set(0.5);
+    	rightTopMotor.set(0.5);
+    	rightBottomMotor.set(0.5);
     }
     
     public void spinRight() {
-    	leftTopMotor.set(-0.7);
-    	leftBottomMotor.set(-0.7);
-    	rightTopMotor.set(-0.7);
-    	rightBottomMotor.set(-0.7);
+    	leftTopMotor.set(-0.5);
+    	leftBottomMotor.set(-0.5);
+    	rightTopMotor.set(-0.5);
+    	rightBottomMotor.set(-0.5);
     }
     
     public void turnToAngle(int angle) {

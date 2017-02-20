@@ -2,7 +2,6 @@ package org.usfirst.frc.team6560.robot;
 
 import org.usfirst.frc.team6560.robot.subsystems.*;
 
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -16,14 +15,15 @@ public class Robot extends IterativeRobot {
 	//Subsystems
 	public static Drive drive;
 	public static Pneumatics gearMission;
-	private CameraServer cam0 = CameraServer.getInstance();
+	//public static VisionSubsystem vision;
+	public static Hanger hanger;
 	
 	Command autonomousCommand;
 	
     public void robotInit() {
     	drive = new Drive();
-		gearMission = new Pneumatics();
-		cam0.startAutomaticCapture();	
+		gearMission = new Pneumatics();	
+		hanger = new Hanger();
 		oi = new OI();
     }
 	
@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot {
     
     }
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+            Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
