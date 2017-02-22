@@ -3,6 +3,7 @@ package org.usfirst.frc.team6560.robot;
 //import edu.wpi.first.wpilibj.buttons.*;
 import edu.wpi.first.wpilibj.Joystick;
 import org.usfirst.frc.team6560.robot.commands.*;
+import org.usfirst.frc.team6560.robot.RobotMap.Joysticks;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
@@ -10,34 +11,39 @@ public class OI {
 	public final Joystick driverstation;
 
 	public OI() {
-		gamepad = new Joystick(RobotMap.Joysticks.JOYSTICK1);
-		driverstation = new Joystick(RobotMap.Joysticks.DRV_STATION);
+		gamepad = new Joystick(Joysticks.JOYSTICK1);
+		driverstation = new Joystick(Joysticks.DRV_STATION);
 
-		JoystickButton aButton = new JoystickButton(gamepad, 1);
-		JoystickButton bButton = new JoystickButton(gamepad, 2);
-		JoystickButton xButton = new JoystickButton(gamepad, 3);
-		JoystickButton yButton = new JoystickButton(gamepad, 4);
-		JoystickButton leftIndex = new JoystickButton(gamepad, 5);
-		JoystickButton rightIndex = new JoystickButton(gamepad, 6);
-		JoystickButton backButton = new JoystickButton(gamepad, 7);
-		JoystickButton startButton = new JoystickButton(gamepad, 8);
-		JoystickButton leftJoyButton = new JoystickButton(gamepad, 9);
-		JoystickButton rightJoyButton = new JoystickButton(gamepad, 10);
+		JoystickButton aButton = new JoystickButton(gamepad, Joysticks.A_BUTTON);
+		JoystickButton bButton = new JoystickButton(gamepad, Joysticks.B_BUTTON);
+		JoystickButton xButton = new JoystickButton(gamepad, Joysticks.X_BUTTON);
+		JoystickButton yButton = new JoystickButton(gamepad, Joysticks.Y_BUTTON);
+//		JoystickButton leftIndex = new JoystickButton(gamepad, Joysticks.LEFT_INDEX_BUTTON);
+//		JoystickButton rightIndex = new JoystickButton(gamepad, Joysticks.RIGHT_INDEX_BUTTON);
+//		JoystickButton backButton = new JoystickButton(gamepad, Joysticks.BACK_BUTTON);
+//		JoystickButton startButton = new JoystickButton(gamepad, Joysticks.START_BUTTON);
+//		JoystickButton leftAxisButton = new JoystickButton(gamepad, Joysticks.LEFT_AXIS_BUTTON);
+//		JoystickButton rightAxisButton = new JoystickButton(gamepad, Joysticks.RIGHT_AXIS_BUTTON);
 
-		JoystickButton trigger = new JoystickButton(driverstation, 1);
-		JoystickButton rightThumb = new JoystickButton(driverstation, 2);
-		JoystickButton button3 = new JoystickButton(driverstation, 3);
-		JoystickButton button4 = new JoystickButton(driverstation, 4);
+		JoystickButton trigger = new JoystickButton(driverstation, Joysticks.TRIGGER_BUTTON);
+		JoystickButton rightThumb = new JoystickButton(driverstation, Joysticks.RIGHT_THUMB_BUTTON);
+		JoystickButton button3 = new JoystickButton(driverstation, Joysticks.BUTTON_3);
+//		JoystickButton button4 = new JoystickButton(driverstation, Joysticks.BUTTON_4);
+//		JoystickButton button5 = new JoystickButton(driverstation, Joysticks.BUTTON_5);
+//		JoystickButton button6 = new JoystickButton(driverstation, Joysticks.BUTTON_6);
+//		JoystickButton button7 = new JoystickButton(driverstation, Joysticks.BUTTON_7);
+//		JoystickButton button8 = new JoystickButton(driverstation, Joysticks.BUTTON_8);
+//		JoystickButton button9 = new JoystickButton(driverstation, Joysticks.BUTTON_9);
+//		JoystickButton button10 = new JoystickButton(driverstation, Joysticks.BUTTON_10);
+//		JoystickButton button11 = new JoystickButton(driverstation, Joysticks.BUTTON_11);
+//		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
 
-		// Commands
-		if (gamepad.getRawAxis(2) > 0.5)
-			trigger.whenPressed(new DropGear(true));
+		//Commands
+		trigger.whenPressed(new DropGear(true));
 		trigger.whenReleased(new DropGear(false));
 		rightThumb.whenPressed(new CollectGear(true));
 		rightThumb.whenReleased(new CollectGear(false));
-		leftIndex.whenPressed(new ShiftGearbox(true));
-		rightIndex.whenPressed(new ShiftGearbox(false));
-		button4.whileHeld(new RunHangerSlider());
+		button3.whileHeld(new RunHangerSlider());
 		yButton.whileHeld(new DriveStraight());
 		aButton.whileHeld(new DriveStraightBackwards());
 		xButton.whileHeld(new SpinLeft());
@@ -46,27 +52,27 @@ public class OI {
 
 	// Axes
 	public double getLeftXAxis() {
-		return gamepad.getRawAxis(0);
+		return gamepad.getRawAxis(Joysticks.LEFT_X_AXIS);
 	}
 
 	public double getLeftYAxis() {
-		return gamepad.getRawAxis(1);
+		return gamepad.getRawAxis(Joysticks.LEFT_Y_AXIS);
 	}
 
 	public double getLeftTrigger() {
-		return gamepad.getRawAxis(2);
+		return gamepad.getRawAxis(Joysticks.LEFT_TRIGGER);
 	}
 
 	public double getRightTrigger() {
-		return gamepad.getRawAxis(3);
+		return gamepad.getRawAxis(Joysticks.RIGHT_TRIGGER);
 	}
 
 	public double getRightXAxis() {
-		return gamepad.getRawAxis(4);
+		return gamepad.getRawAxis(Joysticks.RIGHT_X_AXIS);
 	}
 
 	public double getRightYAxis() {
-		return gamepad.getRawAxis(5);
+		return gamepad.getRawAxis(Joysticks.RIGHT_Y_AXIS);
 	}
 
 	public int getPOV() {
@@ -74,18 +80,18 @@ public class OI {
 	}
 
 	public double getDSXAxis() {
-		return driverstation.getRawAxis(0);
+		return driverstation.getRawAxis(Joysticks.DS_X_AXIS);
 	}
 
 	public double getDSYAxis() {
-		return driverstation.getRawAxis(1);
+		return driverstation.getRawAxis(Joysticks.DS_Y_AXIS);
 	}
 
 	public double getDSZAxis() {
-		return driverstation.getRawAxis(2);
+		return driverstation.getRawAxis(Joysticks.DS_Z_AXIS);
 	}
 
 	public double getDSSlider() {
-		return driverstation.getRawAxis(3);
+		return driverstation.getRawAxis(Joysticks.DS_SLIDER);
 	}
 }

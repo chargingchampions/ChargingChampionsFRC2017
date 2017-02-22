@@ -3,11 +3,7 @@ package org.usfirst.frc.team6560.robot.subsystems;
 import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team6560.robot.RobotMap.Can;
-import org.usfirst.frc.team6560.robot.commands.*;
 
-/**
- *
- */
 public class Hanger extends Subsystem {
 
     CANTalon hangerMotor = new CANTalon(Can.MOTOR);
