@@ -17,11 +17,12 @@ public class Hanger extends Subsystem {
     }
     
     public void runHangerBackwards() {
-    	hangerMotor.set(0.7);
+    	hangerMotor.set(0.2);
     }
 
     public void runHangerSlider(double num) {
-    	hangerMotor.set(num);
+    	if (num < 0) hangerMotor.set(num * 0.2);
+    	else hangerMotor.set(num);
     }
     public void initDefaultCommand() {
     }
