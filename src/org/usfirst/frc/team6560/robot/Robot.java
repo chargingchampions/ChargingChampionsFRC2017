@@ -51,8 +51,13 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopPeriodic() {
+    	drive.ultra.setAutomaticMode(true);
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Gyro angle", drive.gyro.getAngle());
+        SmartDashboard.putNumber("Ultra", drive.ultra.getRangeInches());
+        System.out.println(drive.ultra.getRangeInches());
+//TODO: Find how to add acceleration from gyro
+// and ultrasonic data from NT
     }
     
     public void testPeriodic() {

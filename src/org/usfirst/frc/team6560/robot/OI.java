@@ -18,7 +18,7 @@ public class OI {
 		JoystickButton bButton = new JoystickButton(gamepad, Joysticks.B_BUTTON);
 		JoystickButton xButton = new JoystickButton(gamepad, Joysticks.X_BUTTON);
 		JoystickButton yButton = new JoystickButton(gamepad, Joysticks.Y_BUTTON);
-//		JoystickButton leftIndex = new JoystickButton(gamepad, Joysticks.LEFT_INDEX_BUTTON);
+		JoystickButton leftIndex = new JoystickButton(gamepad, Joysticks.LEFT_INDEX_BUTTON);
 //		JoystickButton rightIndex = new JoystickButton(gamepad, Joysticks.RIGHT_INDEX_BUTTON);
 //		JoystickButton backButton = new JoystickButton(gamepad, Joysticks.BACK_BUTTON);
 //		JoystickButton startButton = new JoystickButton(gamepad, Joysticks.START_BUTTON);
@@ -36,7 +36,7 @@ public class OI {
 //		JoystickButton button9 = new JoystickButton(driverstation, Joysticks.BUTTON_9);
 //		JoystickButton button10 = new JoystickButton(driverstation, Joysticks.BUTTON_10);
 //		JoystickButton button11 = new JoystickButton(driverstation, Joysticks.BUTTON_11);
-//		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
+		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
 
 		//Commands
 		trigger.whenPressed(new DropGear(true));
@@ -48,6 +48,7 @@ public class OI {
 		aButton.whileHeld(new DriveStraightBackwards());
 		xButton.whileHeld(new SpinLeft());
 		bButton.whileHeld(new SpinRight());
+		button12.whileHeld(new SpinHangBackwards());
 	}
 
 	// Axes

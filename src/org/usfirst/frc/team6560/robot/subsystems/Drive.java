@@ -4,6 +4,8 @@ import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Ultrasonic;
+
 import org.usfirst.frc.team6560.robot.RobotMap.Can;
 import org.usfirst.frc.team6560.robot.commands.DriveWithJoysticks;
 
@@ -14,6 +16,7 @@ public class Drive extends Subsystem {
     CANTalon rightBottomMotor = new CANTalon(Can.RIGHT_REAR_MOTOR);
     RobotDrive drivetrain = new RobotDrive(leftTopMotor, leftBottomMotor, rightTopMotor, rightBottomMotor);
     public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+    public Ultrasonic ultra = new Ultrasonic(0, 1);
     
     double kP = 0.03;
 
@@ -30,7 +33,7 @@ public class Drive extends Subsystem {
     	double angle = gyro.getAngle();
     	drivetrain.drive(0.3, kP * angle);
     }
-    
+
     public void driveStraightBackwards() {
     	gyro.reset();
     	double angle = gyro.getAngle();
@@ -38,17 +41,17 @@ public class Drive extends Subsystem {
     }
     
     public void spinRight() {
-    	leftTopMotor.set(0.15);
-    	leftBottomMotor.set(0.15);
-    	rightTopMotor.set(0.15);
-    	rightBottomMotor.set(0.15);
+    	leftTopMotor.set(0.2);
+    	leftBottomMotor.set(0.2);
+    	rightTopMotor.set(0.2);
+    	rightBottomMotor.set(0.2);
     }
     
     public void spinLeft() {
-    	leftTopMotor.set(-0.15);
-    	leftBottomMotor.set(-0.15);
-    	rightTopMotor.set(-0.15);
-    	rightBottomMotor.set(-0.15);
+    	leftTopMotor.set(-0.2);
+    	leftBottomMotor.set(-0.2);
+    	rightTopMotor.set(-0.2);
+    	rightBottomMotor.set(-0.2);
     }
     
     public void turnToAngle(int angle) {

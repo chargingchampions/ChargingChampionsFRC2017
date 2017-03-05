@@ -21,8 +21,7 @@ public class Hanger extends Subsystem {
     }
 
     public void runHangerSlider(double num) {
-    	if (num < 0) hangerMotor.set(num * 0.2);
-    	else hangerMotor.set(num);
+    	hangerMotor.set(num);
     }
     public void initDefaultCommand() {
     }

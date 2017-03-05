@@ -1,22 +1,23 @@
 package org.usfirst.frc.team6560.robot.commands;
 
 import org.usfirst.frc.team6560.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Runs the hangar motor according to the values provided by the Driver Station slider
+ *
  */
-public class RunHangerSlider extends Command {
+public class SpinHangBackwards extends Command {
 
-    public RunHangerSlider() {
-    	requires(Robot.hanger);
+    public SpinHangBackwards() {
+        requires(Robot.hanger);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	Robot.hanger.runHangerSlider(((Robot.oi.getDSSlider() - 1.0) / 2.0));
+    	Robot.hanger.runHangerBackwards();
     }
 
     protected boolean isFinished() {
