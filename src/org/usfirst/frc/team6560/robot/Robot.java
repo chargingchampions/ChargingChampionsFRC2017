@@ -2,6 +2,7 @@ package org.usfirst.frc.team6560.robot;
 
 import org.usfirst.frc.team6560.robot.subsystems.*;
 
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -18,7 +19,9 @@ public class Robot extends IterativeRobot {
 	public static GearMission gearMission;
 	//public static VisionSubsystem vision;
 	public static Hanger hanger;
-	private CameraServer cam0 = CameraServer.getInstance();
+	public static UsbCamera visionTrackingCamera;
+	public static UsbCamera gearCamera;
+	public static UsbCamera hangingCamera;
 	
 	Command autonomousCommand;
 	
@@ -27,7 +30,9 @@ public class Robot extends IterativeRobot {
 		gearMission = new GearMission();	
 		hanger = new Hanger();
 		oi = new OI();
-		cam0.startAutomaticCapture().setResolution(720,480);
+		visionTrackingCamera = CameraServer.getInstance().startAutomaticCapture();
+		gearCamera = CameraServer.getInstance().startAutomaticCapture();
+		hangingCamera = CameraServer.getInstance().startAutomaticCapture();
     }
 	
     public void disabledInit(){
