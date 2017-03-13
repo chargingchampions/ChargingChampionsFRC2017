@@ -34,6 +34,6 @@ public class CenterPegAutonomous extends CommandGroup {
     	addParallel(new DropGear(true));
     	addSequential(new DriveStraightBackwardsTime(0.5, 0.5));
     	addSequential(new StopDriveTime(1));
-    	addSequential(new DropGear(false));
+    	//addSequential(new DropGear(false));
     }
 }
