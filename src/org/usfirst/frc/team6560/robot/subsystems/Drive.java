@@ -10,11 +10,11 @@ import org.usfirst.frc.team6560.robot.RobotMap.Can;
 import org.usfirst.frc.team6560.robot.commands.DriveWithJoysticks;
 
 public class Drive extends Subsystem {
-    CANTalon leftTopMotor = new CANTalon(Can.LEFT_FWD_MOTOR);
+    CANTalon leftTopMotor = new CANTalon(60);
     CANTalon leftBottomMotor = new CANTalon(Can.LEFT_REAR_MOTOR);
     CANTalon rightTopMotor = new CANTalon(Can.RIGHT_FWD_MOTOR);
     CANTalon rightBottomMotor = new CANTalon(Can.RIGHT_REAR_MOTOR);
-    RobotDrive drivetrain = new RobotDrive(leftTopMotor, leftBottomMotor, rightTopMotor, rightBottomMotor);
+    public RobotDrive drivetrain = new RobotDrive(leftTopMotor, leftBottomMotor, rightTopMotor, rightBottomMotor);
     public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
     public Ultrasonic ultra = new Ultrasonic(0, 1);
     
@@ -22,40 +22,57 @@ public class Drive extends Subsystem {
 
     public Drive() {
     	gyro.calibrate();
+    	gyro.reset();
     }
     
     public void driveWithJoysticks(double left, double right) {
     	drivetrain.tankDrive(left, right);
     }
     
-    public void driveStraight() {
+    public void driveStraight(double speed) {
+    	speed = Math.abs(speed);
     	gyro.reset();
-    	double angle = gyro.getAngle();
-    	drivetrain.drive(0.3, kP * angle);
+    	int angle = getGyroAngle();
+    	if(angle > 5)
+    		angle -= 3;
+    	else if(angle < -5)
+    		angle += 3;
+    	drivetrain.drive(speed, kP * angle);
     }
 
-    public void driveStraightBackwards() {
+    public void driveStraightBackwards(double speed) {
+    	speed = Math.abs(speed);
     	gyro.reset();
-    	double angle = gyro.getAngle();
-    	drivetrain.drive(-0.3, kP * angle);
+    	int angle = getGyroAngle();
+    	if(angle > 5)
+    		angle -= 3;
+    	else if(angle < -5)
+    		angle += 3;
+    	drivetrain.drive(-1 * speed, kP * angle);
     }
     
-    public void spinRight() {
-    	leftTopMotor.set(0.2);
-    	leftBottomMotor.set(0.2);
-    	rightTopMotor.set(0.2);
-    	rightBottomMotor.set(0.2);
+    public void spinRight(double speed) {
+    	speed = Math.abs(speed);
+    	leftTopMotor.set(speed);
+    	leftBottomMotor.set(speed);
+    	rightTopMotor.set(speed);
+    	rightBottomMotor.set(speed);
     }
     
-    public void spinLeft() {
-    	leftTopMotor.set(-0.2);
-    	leftBottomMotor.set(-0.2);
-    	rightTopMotor.set(-0.2);
-    	rightBottomMotor.set(-0.2);
+    public void spinLeft(double speed) {
+    	speed = Math.abs(speed);
+    	leftTopMotor.set(-1 * speed);
+    	leftBottomMotor.set(-1 * speed);
+    	rightTopMotor.set(-1 * speed);
+    	rightBottomMotor.set(-1 * speed);
     }
     
     public void turnToAngle(int angle) {
     	
+    }
+    
+    public int getGyroAngle() {
+    	return (int)Math.round(gyro.getAngle());
     }
     
     public void stop() {

@@ -17,7 +17,7 @@ public class GearMission extends Subsystem {
 	public boolean gearShiftStatus;
 	
 	public GearMission() {
-		compressor_0.start();
+		compressor_0.setClosedLoopControl(true);
 	}
 	
     public void initDefaultCommand() {

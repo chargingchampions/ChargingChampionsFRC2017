@@ -1,13 +1,14 @@
 package org.usfirst.frc.team6560.robot;
 
+import org.usfirst.frc.team6560.robot.commands.autonomous.*;
 import org.usfirst.frc.team6560.robot.subsystems.*;
-
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
@@ -17,13 +18,13 @@ public class Robot extends IterativeRobot {
 	//Subsystems
 	public static Drive drive;
 	public static GearMission gearMission;
-	//public static VisionSubsystem vision;
 	public static Hanger hanger;
 	public static UsbCamera visionTrackingCamera;
 	public static UsbCamera gearCamera;
 	public static UsbCamera hangingCamera;
 	
 	Command autonomousCommand;
+	SendableChooser<Command> chooser = new SendableChooser<>();
 	
     public void robotInit() {
     	drive = new Drive();
@@ -33,6 +34,11 @@ public class Robot extends IterativeRobot {
 		visionTrackingCamera = CameraServer.getInstance().startAutomaticCapture();
 		gearCamera = CameraServer.getInstance().startAutomaticCapture();
 		hangingCamera = CameraServer.getInstance().startAutomaticCapture();
+		gearCamera.setFPS(30);
+		hangingCamera.setFPS(30);
+		visionTrackingCamera.setFPS(30);
+		chooser.addDefault("Center Gear Auto", new CenterPegAutonomous());
+		chooser.addObject("Do Nothing auto", null);
     }
 	
     public void disabledInit(){
@@ -44,10 +50,17 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
+    	autonomousCommand = new CenterPegAutonomous();
+    	if(autonomousCommand != null) {
+    		autonomousCommand.start();
+    	}
     
     }
     public void autonomousPeriodic() {
-            Scheduler.getInstance().run();
+    	Scheduler.getInstance().run();
+    	SmartDashboard.putNumber("Gyro Angle", drive.gyro.getAngle());
+        SmartDashboard.putNumber("Ultrasonic Distance", drive.ultra.getRangeInches());
+
     }
 
     public void teleopInit() {
@@ -58,9 +71,8 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
     	drive.ultra.setAutomaticMode(true);
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Gyro angle", drive.gyro.getAngle());
+        SmartDashboard.putNumber("Gyro angle", drive.getGyroAngle());
         SmartDashboard.putNumber("Ultra", drive.ultra.getRangeInches());
-        System.out.println(drive.ultra.getRangeInches());
 //TODO: Find how to add acceleration from gyro
 // and ultrasonic data from NT
     }

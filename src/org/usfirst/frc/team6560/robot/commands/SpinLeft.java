@@ -7,16 +7,19 @@ import edu.wpi.first.wpilibj.command.Command;
  * Spins the Robot counterclockwise
  */
 public class SpinLeft extends Command {
-
-    public SpinLeft() {
+	
+	double speed;
+	
+    public SpinLeft(double dbl) {
         requires(Robot.drive);
+        speed = dbl;
     }
 
     protected void initialize() {
     }
     
     protected void execute() {
-    	Robot.drive.spinLeft();
+    	Robot.drive.spinLeft(speed);
     }
 
     protected boolean isFinished() {

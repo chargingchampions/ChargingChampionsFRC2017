@@ -44,10 +44,10 @@ public class OI {
 		rightThumb.whenPressed(new CollectGear(true));
 		rightThumb.whenReleased(new CollectGear(false));
 		button3.whileHeld(new RunHangerSlider());
-		yButton.whileHeld(new DriveStraight());
-		aButton.whileHeld(new DriveStraightBackwards());
-		xButton.whileHeld(new SpinLeft());
-		bButton.whileHeld(new SpinRight());
+		yButton.whileHeld(new DriveStraight(0.4));
+		aButton.whileHeld(new DriveStraightBackwards(0.4));
+		xButton.whileHeld(new SpinLeft(0.2));
+		bButton.whileHeld(new SpinRight(0.2));
 		button12.whileHeld(new SpinHangBackwards());
 	}
 

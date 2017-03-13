@@ -8,15 +8,18 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SpinRight extends Command {
 	
-    public SpinRight() {
+	double speed;
+	
+    public SpinRight(double dbl) {
         requires(Robot.drive);
+        speed = dbl;
     }
 
     protected void initialize() {
     }
     
     protected void execute() {
-    	Robot.drive.spinRight();
+    	Robot.drive.spinRight(speed);
     }
 
     protected boolean isFinished() {

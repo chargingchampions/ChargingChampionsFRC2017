@@ -7,16 +7,18 @@ import edu.wpi.first.wpilibj.command.Command;
  * Drive straight with the gyro
  */
 public class DriveStraight extends Command {
-
-    public DriveStraight() {
+	double speed;
+	
+	public DriveStraight(double dbl) {
         requires(Robot.drive);
+        speed = dbl;
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-    	Robot.drive.driveStraight();
+    	Robot.drive.driveStraight(speed);
     }
 
     protected boolean isFinished() {
