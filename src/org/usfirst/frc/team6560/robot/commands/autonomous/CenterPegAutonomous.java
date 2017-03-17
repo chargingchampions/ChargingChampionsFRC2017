@@ -19,12 +19,12 @@ public class CenterPegAutonomous extends CommandGroup {
     	addSequential(new StopDriveTime(0.5));
     	addSequential(new DropGear(true));
     	addSequential(new StopDriveTime(0.5));
-    	addSequential(new DriveStraightBackwardsTime(0.5, 0.5));
+    	addSequential(new DriveStraightBackwardsTime(0.5, 0.7));
     	addSequential(new StopDriveTime(1));
-    	//addSequential(new DropGear(false));
-    	addSequential(new TurnToAngle(90));
-    	addSequential(new DriveStraightTime(0.2, 0.5));
+    	addSequential(new DropGear(false));
+    	addSequential(new TurnToAngle(45));
+    	addSequential(new DriveStraightTime(1, 0.5));
     	addSequential(new TurnToAngle(270));
-    	addSequential(new DriveStraightTime(0.3, 0.3));
+    	addSequential(new DriveStraightTime(1, 0.4));
     }
 }

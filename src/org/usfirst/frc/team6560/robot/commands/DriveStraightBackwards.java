@@ -4,7 +4,7 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Drive straight with the gyro
+ * Drive straight backwards
  */
 public class DriveStraightBackwards extends Command {
 	double speed;

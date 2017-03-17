@@ -54,7 +54,7 @@ public class Drive extends Subsystem {
     }
     
     public void spinRight(double speed) {
-    	speed = Math.abs(speed);
+    	speed =  Math.abs(speed);
     	leftTopMotor.set(speed);
     	leftBottomMotor.set(speed);
     	rightTopMotor.set(speed);
