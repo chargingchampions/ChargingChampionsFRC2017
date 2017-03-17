@@ -10,7 +10,7 @@ import org.usfirst.frc.team6560.robot.RobotMap.Can;
 import org.usfirst.frc.team6560.robot.commands.DriveWithJoysticks;
 
 public class Drive extends Subsystem {
-    CANTalon leftTopMotor = new CANTalon(60);
+    CANTalon leftTopMotor = new CANTalon(Can.LEFT_FWD_MOTOR);
     CANTalon leftBottomMotor = new CANTalon(Can.LEFT_REAR_MOTOR);
     CANTalon rightTopMotor = new CANTalon(Can.RIGHT_FWD_MOTOR);
     CANTalon rightBottomMotor = new CANTalon(Can.RIGHT_REAR_MOTOR);
@@ -30,25 +30,27 @@ public class Drive extends Subsystem {
     }
     
     public void driveStraight(double speed) {
+//    	speed = Math.abs(speed);
+//    	gyro.reset();
+//    	int angle = getGyroAngle();
+//    	if(angle > 5)
+//    		angle -= 3;
+//    	else if(angle < -5)
+//    		angle += 3;
+//    	drivetrain.drive(speed, kP * angle);
     	speed = Math.abs(speed);
-    	gyro.reset();
-    	int angle = getGyroAngle();
-    	if(angle > 5)
-    		angle -= 3;
-    	else if(angle < -5)
-    		angle += 3;
-    	drivetrain.drive(speed, kP * angle);
+    	drivetrain.drive(speed, 0);
     }
 
     public void driveStraightBackwards(double speed) {
     	speed = Math.abs(speed);
-    	gyro.reset();
-    	int angle = getGyroAngle();
-    	if(angle > 5)
-    		angle -= 3;
-    	else if(angle < -5)
-    		angle += 3;
-    	drivetrain.drive(-1 * speed, kP * angle);
+//    	gyro.reset();
+//    	int angle = getGyroAngle();
+//    	if(angle > 5)
+//    		angle -= 3;
+//    	else if(angle < -5)
+//    		angle += 3;
+    	drivetrain.drive(-1 * speed, 0);
     }
     
     public void spinRight(double speed) {

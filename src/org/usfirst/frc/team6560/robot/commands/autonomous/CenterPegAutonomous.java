@@ -6,6 +6,7 @@ import org.usfirst.frc.team6560.robot.commands.DriveStraightBackwardsTime;
 import org.usfirst.frc.team6560.robot.commands.DriveStraightTime;
 import org.usfirst.frc.team6560.robot.commands.DropGear;
 import org.usfirst.frc.team6560.robot.commands.StopDriveTime;
+import org.usfirst.frc.team6560.robot.commands.TurnToAngle;
 
 /**
  *
@@ -13,27 +14,17 @@ import org.usfirst.frc.team6560.robot.commands.StopDriveTime;
 public class CenterPegAutonomous extends CommandGroup {
 
     public CenterPegAutonomous() {
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-    	addSequential(new DriveStraightTime(1, 0.7));
-    	addSequential(new StopDriveTime(1));
-    	addParallel(new DropGear(true));
+        // TODO: Verify if speed/drive time is accurate
+    	addSequential(new DriveStraightTime(2, 0.4));
+    	addSequential(new StopDriveTime(0.5));
+    	addSequential(new DropGear(true));
+    	addSequential(new StopDriveTime(0.5));
     	addSequential(new DriveStraightBackwardsTime(0.5, 0.5));
     	addSequential(new StopDriveTime(1));
     	//addSequential(new DropGear(false));
+    	addSequential(new TurnToAngle(90));
+    	addSequential(new DriveStraightTime(0.2, 0.5));
+    	addSequential(new TurnToAngle(270));
+    	addSequential(new DriveStraightTime(0.3, 0.3));
     }
 }

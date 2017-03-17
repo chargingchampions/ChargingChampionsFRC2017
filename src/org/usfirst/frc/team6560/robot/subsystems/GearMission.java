@@ -40,11 +40,11 @@ public class GearMission extends Subsystem {
     }
     
     public void collectGear() {
-    	gearServo.set(0.45);
+    	gearServo.set(1.0);
     }
     
     public void resetServo() {
-    	gearServo.set(1.0);
+    	gearServo.set(0.45);
     }
     
 //    public void test(boolean bool, boolean bool2, boolean bool3, boolean bool4) {
