@@ -24,6 +24,7 @@ public class CenterPegAutonomous extends CommandGroup {
     	addSequential(new DropGear(false));
     	addSequential(new TurnToAngle(45));
     	addSequential(new DriveStraightTime(1, 0.5));
+    	//TODO: Find correct angle and figure out why autonomous stops
     	addSequential(new TurnToAngle(270));
     	addSequential(new DriveStraightTime(1, 0.4));
     }

@@ -39,6 +39,8 @@ public class Robot extends IterativeRobot {
 		visionTrackingCamera.setFPS(30);
 		chooser.addDefault("Center Gear Auto", new CenterPegAutonomous());
 		chooser.addObject("Do Nothing auto", null);
+		chooser.addObject("Left Gear Auto", new LeftPegAutonomous());
+		chooser.addObject("Right Gear Auto", new RightPegAutonomous());
     }
 	
     public void disabledInit(){

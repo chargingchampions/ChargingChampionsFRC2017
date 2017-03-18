@@ -1,5 +1,7 @@
 package org.usfirst.frc.team6560.robot.commands.autonomous;
 
+import org.usfirst.frc.team6560.robot.commands.DriveStraightTime;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -24,5 +26,6 @@ public class LeftPegAutonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addSequential(new DriveStraightTime(3.5, 0.4));
     }
 }
