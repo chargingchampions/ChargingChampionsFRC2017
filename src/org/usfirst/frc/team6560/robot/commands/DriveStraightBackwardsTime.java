@@ -27,7 +27,7 @@ public class DriveStraightBackwardsTime extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.drivetrain.drive(-1 * speed, 0);
+    	Robot.drive.drivetrain.tankDrive(-1 * speed, -1 * speed);
     }
 
     protected boolean isFinished() {

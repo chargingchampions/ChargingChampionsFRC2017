@@ -39,7 +39,7 @@ public class Drive extends Subsystem {
 //    		angle += 3;
 //    	drivetrain.drive(speed, kP * angle);
     	speed = Math.abs(speed);
-    	drivetrain.drive(speed, 0);
+    	drivetrain.tankDrive(speed, speed);
     }
 
     public void driveStraightBackwards(double speed) {
@@ -50,7 +50,7 @@ public class Drive extends Subsystem {
 //    		angle -= 3;
 //    	else if(angle < -5)
 //    		angle += 3;
-    	drivetrain.drive(-1 * speed, 0);
+    	drivetrain.tankDrive(-1 * speed, -1 * speed);
     }
     
     public void spinRight(double speed) {

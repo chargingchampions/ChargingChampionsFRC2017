@@ -26,7 +26,7 @@ public class DriveStraightTime extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.drivetrain.drive(speed, 0);
+    	Robot.drive.drivetrain.tankDrive(0.975 * speed, speed);
     }
     protected boolean isFinished() {
     	return (timer.get() >= time);
