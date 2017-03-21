@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6560.robot.Robot;
 
 /**
- * Drives straight for a given time
+ * Drives straight for a given time and speed
  */
 public class DriveStraightTime extends Command {
 
@@ -26,6 +26,7 @@ public class DriveStraightTime extends Command {
     }
 
     protected void execute() {
+    	//0.975 compensation in order to drive fully straight
     	Robot.drive.drivetrain.tankDrive(0.975 * speed, speed);
     }
     protected boolean isFinished() {

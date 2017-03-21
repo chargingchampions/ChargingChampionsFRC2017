@@ -16,6 +16,7 @@ public class RunHangerSlider extends Command {
     }
 
     protected void execute() {
+    	//Scales the -1.0 to 1.0 range outputted by the Slider to a range of 0 to 1.0 to avoid hanger from spinning backwards
     	Robot.hanger.runHangerSlider(((Robot.oi.getDSSlider() - 1.0) / 2.0));
     }
 

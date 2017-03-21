@@ -1,11 +1,13 @@
 package org.usfirst.frc.team6560.robot;
 
-//import edu.wpi.first.wpilibj.buttons.*;
 import edu.wpi.first.wpilibj.Joystick;
 import org.usfirst.frc.team6560.robot.commands.*;
 import org.usfirst.frc.team6560.robot.RobotMap.Joysticks;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+/**
+ * Holds all constants used by the Operator Interface
+ */
 public class OI {
 	public final Joystick gamepad;
 	public final Joystick driverstation;
@@ -18,7 +20,7 @@ public class OI {
 		JoystickButton bButton = new JoystickButton(gamepad, Joysticks.B_BUTTON);
 		JoystickButton xButton = new JoystickButton(gamepad, Joysticks.X_BUTTON);
 		JoystickButton yButton = new JoystickButton(gamepad, Joysticks.Y_BUTTON);
-		JoystickButton leftIndex = new JoystickButton(gamepad, Joysticks.LEFT_INDEX_BUTTON);
+//		JoystickButton leftIndex = new JoystickButton(gamepad, Joysticks.LEFT_INDEX_BUTTON);
 //		JoystickButton rightIndex = new JoystickButton(gamepad, Joysticks.RIGHT_INDEX_BUTTON);
 //		JoystickButton backButton = new JoystickButton(gamepad, Joysticks.BACK_BUTTON);
 //		JoystickButton startButton = new JoystickButton(gamepad, Joysticks.START_BUTTON);
@@ -39,10 +41,8 @@ public class OI {
 		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
 
 		//Commands
-		trigger.whenPressed(new DropGear(true));
-		trigger.whenReleased(new DropGear(false));
-		rightThumb.whenPressed(new CollectGear(true));
-		rightThumb.whenReleased(new CollectGear(false));
+		trigger.whileHeld(new DropGear());
+		rightThumb.whileHeld(new CollectGear());
 		button3.whileHeld(new RunHangerSlider());
 		yButton.whileHeld(new DriveStraight(0.65));
 		aButton.whileHeld(new DriveStraightBackwards(-0.65));

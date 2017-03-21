@@ -31,6 +31,7 @@ public class Robot extends IterativeRobot {
 		gearMission = new GearMission();	
 		hanger = new Hanger();
 		oi = new OI();
+		//TODO: Determine which camera is not needed
 		visionTrackingCamera = CameraServer.getInstance().startAutomaticCapture();
 		gearCamera = CameraServer.getInstance().startAutomaticCapture();
 		hangingCamera = CameraServer.getInstance().startAutomaticCapture();
@@ -73,10 +74,6 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
     	drive.ultra.setAutomaticMode(true);
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Gyro angle", drive.getGyroAngle());
-        SmartDashboard.putNumber("Ultra", drive.ultra.getRangeInches());
-//TODO: Find how to add acceleration from gyro
-// and ultrasonic data from NT
     }
     
     public void testPeriodic() {

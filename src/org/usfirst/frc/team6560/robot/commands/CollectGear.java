@@ -6,41 +6,30 @@ import org.usfirst.frc.team6560.robot.Robot;
 /**
  * Manipulates the servo on the Gear Mission to tilt/untilt to collect and secure gear
  */
-public class CollectGear extends Command {
-	
-	boolean turning;
-	boolean complete = false;
 
-    public CollectGear(boolean isTurning) {
+
+public class CollectGear extends Command {
+
+    public CollectGear() {
         requires(Robot.gearMission);
-        turning = isTurning;
-        complete = false;
     }
     
     protected void initialize() {
-    	complete = false;
     }
 
     protected void execute() {
-    	if(!complete) {
-    		if(turning) {
-    			Robot.gearMission.resetServo();
-    			complete = true;
-    		}
-    		else {
-    			Robot.gearMission.collectGear();
-    			complete = true;
-    		}
-    	}
+    	Robot.gearMission.resetServo();
     }
 
     protected boolean isFinished() {
-        return complete;
+        return false;
     }
 
     protected void end() {
+    	Robot.gearMission.collectGear();
     }
 
     protected void interrupted() {
+    	end();
     }
 }

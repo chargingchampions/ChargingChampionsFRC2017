@@ -4,7 +4,7 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Spins the Robot clockwise
+ * Spins the Robot clockwise at a given speed
  */
 public class SpinRight extends Command {
 	

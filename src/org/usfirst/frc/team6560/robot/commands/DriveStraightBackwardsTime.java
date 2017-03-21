@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Drives straight backwards for a given time
+ * Drives straight backwards for a given time and speed
  */
 public class DriveStraightBackwardsTime extends Command {
 

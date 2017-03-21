@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Stops all drive for a given time
  */
 public class StopDriveTime extends Command {
 	
