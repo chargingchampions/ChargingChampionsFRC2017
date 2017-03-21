@@ -1,3 +1,3 @@
 # ChargingChampionsFRC2017
 
-Code for the 2017 FRC Season for Charging Champions
+Robot code for Sketchy 2.0, Team 6560's robot for the 2017 FRC season
