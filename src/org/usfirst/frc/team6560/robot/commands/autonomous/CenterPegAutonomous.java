@@ -9,23 +9,20 @@ import org.usfirst.frc.team6560.robot.commands.StopDriveTime;
 import org.usfirst.frc.team6560.robot.commands.TurnToAngle;
 
 /**
+ * Autonomously commands the robot to drive forward from the central driver station
+ * and places the peg on the central lift. Entirely based on time
  *
+ * Approx 50% success rate. Driving straight is an issue. Runs in 3.5 +- 0.1 seconds
  */
 public class CenterPegAutonomous extends CommandGroup {
 
     public CenterPegAutonomous() {
-        // TODO: Verify if speed/drive time is accurate
+        //TODO: Implement sensors for more reliable autonomous
     	addSequential(new DriveStraightTime(1.8, 0.7));
     	addSequential(new StopDriveTime(0.5));
     	addSequential(new DropGear(true));
     	addSequential(new StopDriveTime(0.5));
     	addSequential(new DriveStraightBackwardsTime(0.5, 0.8));
     	addSequential(new StopDriveTime(1));
-    	//addSequential(new DropGear(false));
-    	//addSequential(new TurnToAngle(45));
-    	//addSequential(new DriveStraightTime(1, 0.5));
-    	//TODO: Find correct angle and figure out why autonomous stops
-    	//addSequential(new TurnToAngle(270));
-    	///addSequential(new DriveStraightTime(1, 0.4));
     }
 }
