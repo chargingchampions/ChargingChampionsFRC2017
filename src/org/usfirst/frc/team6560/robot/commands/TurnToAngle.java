@@ -1,14 +1,13 @@
 package org.usfirst.frc.team6560.robot.commands;
 
 import org.usfirst.frc.team6560.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Turns robot left/right until the gyro reads a given angle
  */
 public class TurnToAngle extends Command {
-	int angle;
+	private int angle;
 	
     public TurnToAngle(int n) {
         requires(Robot.drive);
@@ -28,9 +27,9 @@ public class TurnToAngle extends Command {
 
     protected boolean isFinished() {
         if(angle > 0 && angle < 180)
-        	return (int)Robot.drive.gyro.getAngle() >= angle;
+        	return (int)Robot.drive.getGyroAngle() >= angle;
         else
-        	return (int)Robot.drive.gyro.getAngle() <= angle;	
+        	return (int)Robot.drive.getGyroAngle() <= angle;	
     }
 
     protected void end() {

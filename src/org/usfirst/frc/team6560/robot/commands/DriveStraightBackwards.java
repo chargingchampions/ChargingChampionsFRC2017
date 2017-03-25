@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
  * Drive straight backwards with a given speed
  */
 public class DriveStraightBackwards extends Command {
-	double speed;
+	private double speed;
 
     public DriveStraightBackwards(double dbl) {
         requires(Robot.drive);
@@ -15,6 +15,7 @@ public class DriveStraightBackwards extends Command {
     }
 
     protected void initialize() {
+    	Robot.drive.gyro.reset();
     }
 
     protected void execute() {

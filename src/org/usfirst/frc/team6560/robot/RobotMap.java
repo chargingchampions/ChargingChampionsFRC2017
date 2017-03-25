@@ -75,10 +75,6 @@ public class RobotMap {
 	}
 	
 	public static  class Pwm {
-		//GyroCam servos
-		public static final int X_AXIS_CAM = 1;
-		public static final int Y_AXIS_CAM = 2;
-		
 		//Gear Mission
 		public static final int GEAR_SERVO = 9;
 	}

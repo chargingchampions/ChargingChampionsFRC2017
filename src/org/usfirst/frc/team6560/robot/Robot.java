@@ -21,7 +21,6 @@ public class Robot extends IterativeRobot {
 	public static Hanger hanger;
 	public static UsbCamera visionTrackingCamera;
 	public static UsbCamera gearCamera;
-	public static UsbCamera hangingCamera;
 	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -34,14 +33,11 @@ public class Robot extends IterativeRobot {
 		//TODO: Determine which camera is not needed
 		visionTrackingCamera = CameraServer.getInstance().startAutomaticCapture();
 		gearCamera = CameraServer.getInstance().startAutomaticCapture();
-		hangingCamera = CameraServer.getInstance().startAutomaticCapture();
-		gearCamera.setFPS(30);
-		hangingCamera.setFPS(30);
-		visionTrackingCamera.setFPS(30);
 		chooser.addDefault("Center Gear Auto", new CenterPegAutonomous());
 		chooser.addObject("Do Nothing auto", null);
 		chooser.addObject("Left Gear Auto", new LeftPegAutonomous());
 		chooser.addObject("Right Gear Auto", new RightPegAutonomous());
+		SmartDashboard.putData("Autonomous Mode Chooser", chooser);
     }
 	
     public void disabledInit(){
@@ -53,7 +49,7 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-    	autonomousCommand = new CenterPegAutonomous();
+    	autonomousCommand = chooser.getSelected();
     	if(autonomousCommand != null) {
     		autonomousCommand.start();
     	}
@@ -72,6 +68,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopPeriodic() {
+    	System.out.println("Angle: " + drive.getGyroAngle());
     	drive.ultra.setAutomaticMode(true);
         Scheduler.getInstance().run();
     }

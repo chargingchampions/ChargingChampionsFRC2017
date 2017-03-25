@@ -1,34 +1,31 @@
 package org.usfirst.frc.team6560.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team6560.robot.Robot;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Pulls pistons in Gear Mission to deploy gears
- * Pushes pistons back to close Gear Mission when stopped
+ *
  */
-public class DropGear extends Command {
-	
+public class DropGear extends CommandGroup {
+
     public DropGear() {
-    	requires(Robot.gearMission);
-    }
-    
-    protected void initialize() {
-    }
+        // Add Commands here:
+        // e.g. addSequential(new Command1());
+        //      addSequential(new Command2());
+        // these will run in order.
 
-    protected void execute() {
-    	Robot.gearMission.openFlaps();
-    }
+        // To run multiple commands at the same time,
+        // use addParallel()
+        // e.g. addParallel(new Command1());
+        //      addSequential(new Command2());
+        // Command1 and Command2 will run in parallel.
 
-    protected boolean isFinished() {
-    	return false;
-    }
-
-    protected void end() {
-    	Robot.gearMission.closeFlaps();
-    }
-
-    protected void interrupted() {
-    	end();
+        // A command group will require all of the subsystems that each member
+        // would require.
+        // e.g. if Command1 requires chassis, and Command2 requires arm,
+        // a CommandGroup containing them would require both the chassis and the
+        // arm.
+    	addSequential(new OpenFlaps());
+    	addSequential(new PushGear());
+    	addSequential(new CloseFlaps());
     }
 }

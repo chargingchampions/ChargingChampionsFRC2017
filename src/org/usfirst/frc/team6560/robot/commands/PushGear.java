@@ -1,22 +1,19 @@
 package org.usfirst.frc.team6560.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6560.robot.Robot;
 
-/**
- * Drives straight for a given time and speed
- */
-public class DriveStraightTime extends Command {
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
-	private double time;
-	private double speed;
+/**
+ * Pushes gear out using pneumatic piston
+ */
+public class PushGear extends Command {
+
 	private Timer timer;
 	
-    public DriveStraightTime(double t, double s) {
-        requires(Robot.drive);
-        time = t;
-        speed = s;
+    public PushGear() {
+    	requires(Robot.gearMission);
     }
 
     protected void initialize() {
@@ -26,15 +23,15 @@ public class DriveStraightTime extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.driveStraight(speed);
+    	Robot.gearMission.pushGear();
     }
+
     protected boolean isFinished() {
-    	return (timer.get() >= time);
+        return timer.get() >= 4;
     }
 
     protected void end() {
-    	Robot.drive.stop();
-    	timer.stop();
+    	Robot.gearMission.retract();
     }
 
     protected void interrupted() {

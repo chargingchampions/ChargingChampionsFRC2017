@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
  * Drives straight with a given speed
  */
 public class DriveStraight extends Command {
-	double speed;
+	private double speed;
 	
 	public DriveStraight(double dbl) {
         requires(Robot.drive);
@@ -15,6 +15,7 @@ public class DriveStraight extends Command {
     }
 
     protected void initialize() {
+        Robot.drive.gyro.reset();
     }
 
     protected void execute() {

@@ -18,7 +18,7 @@ public class Drive extends Subsystem {
     public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
     public Ultrasonic ultra = new Ultrasonic(0, 1);
     
-    double kP = 0.03;
+    private double kP = 0.03;
 
     public Drive() {
     	gyro.calibrate();
@@ -30,27 +30,15 @@ public class Drive extends Subsystem {
     }
     
     public void driveStraight(double speed) {
-//    	speed = Math.abs(speed);
-//    	gyro.reset();
-//    	int angle = getGyroAngle();
-//    	if(angle > 5)
-//    		angle -= 3;
-//    	else if(angle < -5)
-//    		angle += 3;
-//    	drivetrain.drive(speed, kP * angle);
     	speed = Math.abs(speed);
-    	drivetrain.tankDrive(speed, speed);
+      	int angle = getGyroAngle();
+    	drivetrain.drive(speed, -1 * angle * kP);
     }
 
     public void driveStraightBackwards(double speed) {
     	speed = Math.abs(speed);
-//    	gyro.reset();
-//    	int angle = getGyroAngle();
-//    	if(angle > 5)
-//    		angle -= 3;
-//    	else if(angle < -5)
-//    		angle += 3;
-    	drivetrain.tankDrive(-1 * speed, -1 * speed);
+    	int angle = getGyroAngle();
+    	drivetrain.drive(-1 * speed, angle * kP);
     }
     
     public void spinRight(double speed) {
@@ -67,10 +55,6 @@ public class Drive extends Subsystem {
     	leftBottomMotor.set(-1 * speed);
     	rightTopMotor.set(-1 * speed);
     	rightBottomMotor.set(-1 * speed);
-    }
-    
-    public void turnToAngle(int angle) {
-    	
     }
     
     public int getGyroAngle() {

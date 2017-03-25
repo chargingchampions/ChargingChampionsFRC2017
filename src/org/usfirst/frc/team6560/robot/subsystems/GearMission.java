@@ -47,6 +47,14 @@ public class GearMission extends Subsystem {
     	gearServo.set(0.45);
     }
     
+    public void pushGear() {
+    	solenoid_1.set(true);
+    }
+    
+    public void retract() {
+    	solenoid_1.set(false);
+    }
+    
 //    public void test(boolean bool, boolean bool2, boolean bool3, boolean bool4) {
 //    	//Tests solenoids 0 - 4 to ensure that they work
 //    	solenoid_0.set(bool);

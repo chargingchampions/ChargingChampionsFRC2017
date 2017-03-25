@@ -30,7 +30,7 @@ public class OI {
 		JoystickButton trigger = new JoystickButton(driverstation, Joysticks.TRIGGER_BUTTON);
 		JoystickButton rightThumb = new JoystickButton(driverstation, Joysticks.RIGHT_THUMB_BUTTON);
 		JoystickButton button3 = new JoystickButton(driverstation, Joysticks.BUTTON_3);
-//		JoystickButton button4 = new JoystickButton(driverstation, Joysticks.BUTTON_4);
+		JoystickButton button4 = new JoystickButton(driverstation, Joysticks.BUTTON_4);
 //		JoystickButton button5 = new JoystickButton(driverstation, Joysticks.BUTTON_5);
 //		JoystickButton button6 = new JoystickButton(driverstation, Joysticks.BUTTON_6);
 //		JoystickButton button7 = new JoystickButton(driverstation, Joysticks.BUTTON_7);
@@ -41,7 +41,8 @@ public class OI {
 		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
 
 		//Commands
-		trigger.whileHeld(new DropGear());
+		trigger.whenPressed(new OpenFlaps());
+		trigger.whenReleased(new CloseFlaps());
 		rightThumb.whileHeld(new CollectGear());
 		button3.whileHeld(new RunHangerSlider());
 		yButton.whileHeld(new DriveStraight(0.65));
@@ -49,6 +50,7 @@ public class OI {
 		xButton.whileHeld(new SpinLeft(0.55));
 		bButton.whileHeld(new SpinRight(0.55));
 		button12.whileHeld(new SpinHangBackwards());
+		button4.whenPressed(new DropGear());
 	}
 
 	// Axes
