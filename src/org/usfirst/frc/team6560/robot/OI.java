@@ -6,7 +6,7 @@ import org.usfirst.frc.team6560.robot.RobotMap.Joysticks;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
- * Holds all constants used by the Operator Interface
+ * Holds everything to be used by the Operator Interface
  */
 public class OI {
 	public final Joystick gamepad;

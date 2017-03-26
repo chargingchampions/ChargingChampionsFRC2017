@@ -41,6 +41,10 @@ public class Drive extends Subsystem {
     	drivetrain.drive(-1 * speed, angle * kP);
     }
     
+    public void driveCurve(int angle, double speed) {
+    	drivetrain.drive(speed, angle);
+    }
+    
     public void spinRight(double speed) {
     	speed =  Math.abs(speed);
     	leftTopMotor.set(speed);

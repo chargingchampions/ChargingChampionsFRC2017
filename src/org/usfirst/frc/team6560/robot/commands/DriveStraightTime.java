@@ -20,6 +20,7 @@ public class DriveStraightTime extends Command {
     }
 
     protected void initialize() {
+        Robot.drive.gyro.reset();
     	timer = new Timer();
     	timer.reset();
     	timer.start();

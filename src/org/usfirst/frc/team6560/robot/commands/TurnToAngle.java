@@ -8,35 +8,35 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class TurnToAngle extends Command {
 	private int angle;
-	
-    public TurnToAngle(int n) {
-        requires(Robot.drive);
-        angle = n;
-    }
 
-    protected void initialize() {
-    	Robot.drive.gyro.reset();
-    }
+	public TurnToAngle(int n) {
+		requires(Robot.drive);
+		angle = n;
+	}
 
-    protected void execute() {
-    	if(angle > 0 && angle < 180)
-    		Robot.drive.spinRight(0.5);
-    	if(angle > 180 && angle < 361)
-    		Robot.drive.spinLeft(0.5);
-    }
+	protected void initialize() {
+		Robot.drive.gyro.reset();
+	}
 
-    protected boolean isFinished() {
-        if(angle > 0 && angle < 180)
-        	return (int)Robot.drive.getGyroAngle() >= angle;
-        else
-        	return (int)Robot.drive.getGyroAngle() <= angle;	
-    }
+	protected void execute() {
+		if (angle > 0)
+			Robot.drive.spinRight(0.25);
+		if (angle < 0)
+			Robot.drive.spinLeft(0.25);
+	}
 
-    protected void end() {
-    	Robot.drive.stop();
-    }
+	protected boolean isFinished() {
+		if (angle > 0)
+			return Robot.drive.getGyroAngle() >= angle;
+		else
+			return Robot.drive.getGyroAngle() <= angle;
+	}
 
-    protected void interrupted() {
-    	end();
-    }
+	protected void end() {
+		Robot.drive.stop();
+	}
+
+	protected void interrupted() {
+		end();
+	}
 }

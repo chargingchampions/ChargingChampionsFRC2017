@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6560.robot;
 
+import org.usfirst.frc.team6560.robot.commands.Troll;
 import org.usfirst.frc.team6560.robot.commands.autonomous.*;
 import org.usfirst.frc.team6560.robot.subsystems.*;
 import edu.wpi.cscore.UsbCamera;
@@ -57,7 +58,7 @@ public class Robot extends IterativeRobot {
     }
     public void autonomousPeriodic() {
     	Scheduler.getInstance().run();
-    	SmartDashboard.putNumber("Gyro Angle", drive.gyro.getAngle());
+    	System.out.println("Angle: " + drive.getGyroAngle());
         SmartDashboard.putNumber("Ultrasonic Distance", drive.ultra.getRangeInches());
 
     }
@@ -69,7 +70,6 @@ public class Robot extends IterativeRobot {
 
     public void teleopPeriodic() {
     	System.out.println("Angle: " + drive.getGyroAngle());
-    	drive.ultra.setAutomaticMode(true);
         Scheduler.getInstance().run();
     }
     

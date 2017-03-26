@@ -6,6 +6,7 @@ import org.usfirst.frc.team6560.robot.commands.DriveStraightBackwardsTime;
 import org.usfirst.frc.team6560.robot.commands.DriveStraightTime;
 import org.usfirst.frc.team6560.robot.commands.DropGear;
 import org.usfirst.frc.team6560.robot.commands.StopDriveTime;
+import org.usfirst.frc.team6560.robot.commands.TurnToAngle;
 
 /**
  * Autonomously commands the robot to drive forward from the central driver station
@@ -17,12 +18,15 @@ public class CenterPegAutonomous extends CommandGroup {
 
     public CenterPegAutonomous() {
         //TODO: Implement sensors for more reliable autonomous
-    	addSequential(new DriveStraightTime(1.8, 0.7));
+    	addSequential(new DriveStraightTime(1, 0.5));
+    	addSequential(new DriveStraightTime(0.45, 0.3));
     	addSequential(new StopDriveTime(0.5));
-    	//TODO: Check if Drop Gear works or if we need separate OpenFlaps command
+    	addSequential(new TurnToAngle(1));
+    	addSequential(new TurnToAngle(-2));
+    	addSequential(new DriveStraightTime(0.5, 0.3));
     	addSequential(new DropGear());
     	addSequential(new StopDriveTime(0.5));
-    	addSequential(new DriveStraightBackwardsTime(0.5, 0.8));
+    	addSequential(new DriveStraightBackwardsTime(0.5, 0.6));
     	addSequential(new StopDriveTime(1));
     }
 }

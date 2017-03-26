@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Closes flaps on gear mission 
+ * Closes flaps on gear subsystem
  */
 public class CloseFlaps extends Command {
 	
