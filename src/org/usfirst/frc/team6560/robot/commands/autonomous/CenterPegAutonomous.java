@@ -18,7 +18,7 @@ public class CenterPegAutonomous extends CommandGroup {
 
     public CenterPegAutonomous() {
         //TODO: Implement sensors for more reliable autonomous
-    	addSequential(new DriveStraightTime(1, 0.5));
+    	addSequential(new DriveStraightTime(0.7, 0.6));
     	addSequential(new DriveStraightTime(0.45, 0.3));
     	addSequential(new StopDriveTime(0.5));
     	addSequential(new TurnToAngle(1));

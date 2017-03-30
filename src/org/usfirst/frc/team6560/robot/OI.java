@@ -31,7 +31,7 @@ public class OI {
 		JoystickButton rightThumb = new JoystickButton(driverstation, Joysticks.RIGHT_THUMB_BUTTON);
 		JoystickButton button3 = new JoystickButton(driverstation, Joysticks.BUTTON_3);
 		JoystickButton button4 = new JoystickButton(driverstation, Joysticks.BUTTON_4);
-//		JoystickButton button5 = new JoystickButton(driverstation, Joysticks.BUTTON_5);
+		JoystickButton button5 = new JoystickButton(driverstation, Joysticks.BUTTON_5);
 //		JoystickButton button6 = new JoystickButton(driverstation, Joysticks.BUTTON_6);
 //		JoystickButton button7 = new JoystickButton(driverstation, Joysticks.BUTTON_7);
 //		JoystickButton button8 = new JoystickButton(driverstation, Joysticks.BUTTON_8);
@@ -41,16 +41,17 @@ public class OI {
 		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
 
 		//Commands
-		trigger.whenPressed(new OpenFlaps());
-		trigger.whenReleased(new CloseFlaps());
+		trigger.whenPressed(new DropGear());
+		button5.whenPressed(new PushGear());
 		rightThumb.whileHeld(new CollectGear());
 		button3.whileHeld(new RunHangerSlider());
-		yButton.whileHeld(new DriveStraight(0.65));
-		aButton.whileHeld(new DriveStraightBackwards(-0.65));
-		xButton.whileHeld(new SpinLeft(0.55));
-		bButton.whileHeld(new SpinRight(0.55));
+		yButton.whileHeld(new DriveStraight(0.9));
+		aButton.whileHeld(new DriveStraightBackwards(-0.9));
+		xButton.whileHeld(new SpinLeft(0.8));
+		bButton.whileHeld(new SpinRight(0.8));
 		button12.whileHeld(new SpinHangBackwards());
-		button4.whenPressed(new DropGear());
+		button4.whenPressed(new OpenFlaps());
+		button4.whenReleased(new CloseFlaps());
 	}
 
 	// Axes

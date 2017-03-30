@@ -27,7 +27,7 @@ public class PushGear extends Command {
     }
 
     protected boolean isFinished() {
-        return timer.get() >= 2;
+        return timer.get() >= 0.8;
     }
 
     protected void end() {

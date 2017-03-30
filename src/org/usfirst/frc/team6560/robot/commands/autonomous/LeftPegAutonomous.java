@@ -16,9 +16,9 @@ public class LeftPegAutonomous extends CommandGroup {
 
     public LeftPegAutonomous() {
         //TODO: Add autonomous for the left peg, using turn and drive straight commands
-    	addSequential(new DriveStraightTime(2, 0.4));
+    	addSequential(new DriveStraightTime(1.48, 0.5));
     	addSequential(new StopDriveTime(1.0));
-    	addSequential(new TurnToAngle(-30));
+    	addSequential(new TurnToAngle(40));
     	addSequential(new StopDriveTime(1.0));
     	addSequential(new DriveStraightTime(0.5, 0.5));
     	addSequential(new DriveStraightTime(0.2, 0.2));
