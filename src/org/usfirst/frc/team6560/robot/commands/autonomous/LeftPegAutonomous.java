@@ -10,12 +10,11 @@ import org.usfirst.frc.team6560.robot.commands.TurnToAngle;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Drives straight to the baseline. Lift dropping will be implemented
+ * Time-based autonomous program that drops gear on left peg
  */
 public class LeftPegAutonomous extends CommandGroup {
 
     public LeftPegAutonomous() {
-        //TODO: Add autonomous for the left peg, using turn and drive straight commands
     	addSequential(new DriveStraightTime(1.48, 0.5));
     	addSequential(new StopDriveTime(1.0));
     	addSequential(new TurnToAngle(40));

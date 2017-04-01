@@ -8,7 +8,7 @@ import org.usfirst.frc.team6560.robot.commands.TurnToAngle;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous for dropping gear on right peg
+ * Time-based autonomous program that drops gear on right peg
  */
 public class RightPegAutonomous extends CommandGroup {
 

@@ -76,7 +76,7 @@ public class RobotMap {
 	
 	public static  class Pwm {
 		//Gear Mission
-		public static final int GEAR_SERVO = 9;
+		public static final int GEAR_SERVO = 0;
 	}
 	
 }

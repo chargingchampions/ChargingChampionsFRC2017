@@ -42,7 +42,7 @@ public class OI {
 
 		//Commands
 		trigger.whenPressed(new DropGear());
-		button5.whenPressed(new PushGear());
+		button5.whenPressed(new PushGear(0.8));
 		rightThumb.whileHeld(new CollectGear());
 		button3.whileHeld(new RunHangerSlider());
 		yButton.whileHeld(new DriveStraight(0.9));

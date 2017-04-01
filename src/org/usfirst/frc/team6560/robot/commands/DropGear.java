@@ -9,7 +9,7 @@ public class DropGear extends CommandGroup {
 
     public DropGear() {
     	addSequential(new OpenFlaps());
-    	addSequential(new PushGear());
+    	addSequential(new PushGear(0.8));
     	addSequential(new CloseFlaps());
     }
 }

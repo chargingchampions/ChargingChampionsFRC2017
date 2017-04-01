@@ -35,9 +35,10 @@ public class Robot extends IterativeRobot {
 		visionTrackingCamera = CameraServer.getInstance().startAutomaticCapture();
 		gearCamera = CameraServer.getInstance().startAutomaticCapture();
 		chooser.addDefault("Center Gear Auto", new CenterPegAutonomous());
-		chooser.addObject("Do Nothing auto", null);
 		chooser.addObject("Left Gear Auto", new LeftPegAutonomous());
 		chooser.addObject("Right Gear Auto", new RightPegAutonomous());
+		chooser.addObject("Go Straight Auto", new GoStraightAutonomous());
+		chooser.addObject("Do Nothing Auto", null);
 		SmartDashboard.putData("Autonomous Mode Chooser", chooser);
     }
 	

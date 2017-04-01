@@ -10,10 +10,12 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class PushGear extends Command {
 
+	private double time;
 	private Timer timer;
 	
-    public PushGear() {
+    public PushGear(double t) {
     	requires(Robot.gearMission);
+    	time = t;
     }
 
     protected void initialize() {
@@ -27,7 +29,7 @@ public class PushGear extends Command {
     }
 
     protected boolean isFinished() {
-        return timer.get() >= 0.8;
+    	return timer.get() >= time;
     }
 
     protected void end() {
