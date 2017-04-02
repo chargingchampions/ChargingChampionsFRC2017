@@ -1,6 +1,5 @@
 package org.usfirst.frc.team6560.robot.commands.autonomous;
 
-import org.usfirst.frc.team6560.robot.commands.DriveCurvedTime;
 import org.usfirst.frc.team6560.robot.commands.DriveStraightBackwardsTime;
 import org.usfirst.frc.team6560.robot.commands.DriveStraightTime;
 import org.usfirst.frc.team6560.robot.commands.DropGear;

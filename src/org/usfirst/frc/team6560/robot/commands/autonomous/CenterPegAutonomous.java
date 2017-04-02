@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc.team6560.robot.commands.CloseFlaps;
 import org.usfirst.frc.team6560.robot.commands.DriveStraightBackwardsTime;
 import org.usfirst.frc.team6560.robot.commands.DriveStraightTime;
-import org.usfirst.frc.team6560.robot.commands.DropGear;
 import org.usfirst.frc.team6560.robot.commands.OpenFlaps;
 import org.usfirst.frc.team6560.robot.commands.PushGear;
 import org.usfirst.frc.team6560.robot.commands.StopDriveTime;

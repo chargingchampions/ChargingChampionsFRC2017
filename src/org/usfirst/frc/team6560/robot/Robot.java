@@ -1,6 +1,5 @@
 package org.usfirst.frc.team6560.robot;
 
-import org.usfirst.frc.team6560.robot.commands.Troll;
 import org.usfirst.frc.team6560.robot.commands.autonomous.*;
 import org.usfirst.frc.team6560.robot.subsystems.*;
 import edu.wpi.cscore.UsbCamera;
@@ -20,7 +19,6 @@ public class Robot extends IterativeRobot {
 	public static Drive drive;
 	public static GearMission gearMission;
 	public static Hanger hanger;
-	public static UsbCamera visionTrackingCamera;
 	public static UsbCamera gearCamera;
 	
 	Command autonomousCommand;
@@ -31,8 +29,6 @@ public class Robot extends IterativeRobot {
 		gearMission = new GearMission();	
 		hanger = new Hanger();
 		oi = new OI();
-		//TODO: Determine which camera is not needed
-		visionTrackingCamera = CameraServer.getInstance().startAutomaticCapture();
 		gearCamera = CameraServer.getInstance().startAutomaticCapture();
 		chooser.addDefault("Center Gear Auto", new CenterPegAutonomous());
 		chooser.addObject("Left Gear Auto", new LeftPegAutonomous());
@@ -58,10 +54,9 @@ public class Robot extends IterativeRobot {
     
     }
     public void autonomousPeriodic() {
+    	SmartDashboard.putNumber("Gyro Angle", drive.getGyroAngle());
     	Scheduler.getInstance().run();
-    	System.out.println("Angle: " + drive.getGyroAngle());
-        SmartDashboard.putNumber("Ultrasonic Distance", drive.ultra.getRangeInches());
-
+        //SmartDashboard.putNumber("Ultrasonic Distance", drive.ultra.getRangeInches());
     }
 
     public void teleopInit() {
@@ -70,7 +65,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopPeriodic() {
-    	System.out.println("Angle: " + drive.getGyroAngle());
+    	SmartDashboard.putNumber("Gyro Angle", drive.getGyroAngle());
         Scheduler.getInstance().run();
     }
     
