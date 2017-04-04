@@ -4,7 +4,10 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Turns robot left/right until the gyro reads a given angle
+ * Spin robot until the gyro reads a given angle
+ * 
+ * If input angle is greater than 0, turn clockwise
+ * If input angle is less than 0, turn counterclockwise
  */
 public class TurnToAngle extends Command {
 	private int angle;

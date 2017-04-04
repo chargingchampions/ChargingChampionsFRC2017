@@ -29,7 +29,6 @@ public class RobotMap {
 		public static final int RIGHT_X_AXIS = 4;
 		public static final int RIGHT_Y_AXIS = 5;
 		
-		
 		//DS Buttons
 		public static final int TRIGGER_BUTTON = 1;
 		public static final int RIGHT_THUMB_BUTTON = 2;

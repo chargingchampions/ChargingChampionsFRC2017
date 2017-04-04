@@ -4,7 +4,7 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Runs the hangar motor according to the values provided by the Driver Station slider
+ * Runs the hanger motor at a speed provided by input from Driver Station slider
  */
 public class RunHangerSlider extends Command {
 

@@ -6,7 +6,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Pushes gear out using pneumatic piston
+ * Pushes gear out using pneumatic piston until a certain time is reached
+ * Retracts the piston once time is reached
  */
 public class PushGear extends Command {
 

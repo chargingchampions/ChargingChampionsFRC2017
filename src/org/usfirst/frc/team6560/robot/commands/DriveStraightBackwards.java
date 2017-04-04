@@ -4,7 +4,7 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Drive straight backwards with a given speed
+ * Drive straight backwards with an input speed
  */
 public class DriveStraightBackwards extends Command {
 	private double speed;

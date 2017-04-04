@@ -6,7 +6,6 @@ import org.usfirst.frc.team6560.robot.Robot;
 /**
  * Manipulates the servo on the gear subsystem to tilt/untilt to collect and secure gear
  */
-
 public class CollectGear extends Command {
 
     public CollectGear() {

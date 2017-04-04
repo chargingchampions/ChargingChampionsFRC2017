@@ -16,8 +16,7 @@ import org.usfirst.frc.team6560.robot.commands.TurnToAngle;
  */
 public class CenterPegAutonomous extends CommandGroup {
 
-    public CenterPegAutonomous() {
-        //TODO: Implement sensors for more reliable autonomous    	
+    public CenterPegAutonomous() {   	
     	addSequential(new DriveStraightTime(1.5, 0.5));
     	addSequential(new DriveStraightTime(0.45, 0.4));
     	addSequential(new StopDriveTime(0.5));
@@ -32,7 +31,5 @@ public class CenterPegAutonomous extends CommandGroup {
     	addSequential(new DriveStraightBackwardsTime(0.5, 0.6));
     	addSequential(new CloseFlaps());
     	addSequential(new StopDriveTime(1));
-    	
- 
     }
 }

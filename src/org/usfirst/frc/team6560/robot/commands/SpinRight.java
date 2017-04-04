@@ -4,11 +4,11 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Spins the Robot clockwise at a given speed
+ * Spins the Robot clockwise at an input speed
  */
 public class SpinRight extends Command {
 	
-	double speed;
+	private double speed;
 	
     public SpinRight(double dbl) {
         requires(Robot.drive);

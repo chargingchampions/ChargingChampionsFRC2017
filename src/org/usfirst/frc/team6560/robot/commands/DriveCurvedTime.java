@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Drives the robot at a curve until a certain time is reached
  */
 public class DriveCurvedTime extends Command {
 
@@ -22,7 +22,6 @@ public class DriveCurvedTime extends Command {
         time = t;
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.drive.gyro.reset();
     	timer = new Timer();
@@ -34,18 +33,14 @@ public class DriveCurvedTime extends Command {
     	Robot.drive.driveCurve(angle, speed);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return timer.get() >= time;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
     	Robot.drive.stop();
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     	end();
     }

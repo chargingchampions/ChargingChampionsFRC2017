@@ -4,7 +4,7 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Drives straight with a given speed
+ * Drives straight with an input speed
  */
 public class DriveStraight extends Command {
 	private double speed;

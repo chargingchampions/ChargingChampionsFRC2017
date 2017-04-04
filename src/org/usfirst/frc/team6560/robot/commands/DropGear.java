@@ -3,7 +3,7 @@ package org.usfirst.frc.team6560.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Opens flaps, pushes gear out, then closes flaps on gear subsystem
+ * Opens flaps (delay 0.1 seconds to avoid collision), pushes gear out, then closes flaps on gear subsystem
  */
 public class DropGear extends CommandGroup {
 

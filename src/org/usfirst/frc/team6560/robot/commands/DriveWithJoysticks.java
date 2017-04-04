@@ -4,7 +4,7 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Tank Drive robot with two joystick axes
+ * Tank Drive robot with two joystick axes as input
  */
 public class DriveWithJoysticks extends Command {
 

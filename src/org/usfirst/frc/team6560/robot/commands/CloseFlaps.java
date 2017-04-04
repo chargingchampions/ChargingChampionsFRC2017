@@ -5,11 +5,13 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Closes flaps on gear subsystem
+ * Closes flaps on gear collection system
+ * 
+ * Utilizes a 0.1 second timer in order to return true for the isFinished() method
+ * TODO: Implement a better way to do this
  */
 public class CloseFlaps extends Command {
-	
-	Timer timer;
+	private Timer timer;
 
     public CloseFlaps() {
     	requires(Robot.gearMission);

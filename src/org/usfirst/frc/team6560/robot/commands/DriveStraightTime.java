@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6560.robot.Robot;
 
 /**
- * Drives straight for a given time and speed
+ * Drives straight for an input time and speed
  */
 public class DriveStraightTime extends Command {
 

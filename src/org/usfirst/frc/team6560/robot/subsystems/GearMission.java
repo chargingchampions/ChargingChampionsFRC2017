@@ -16,10 +16,57 @@ public class GearMission extends Subsystem {
 	public Servo gearServo = new Servo(RobotMap.Pwm.GEAR_SERVO);
 	public boolean gearShiftStatus;
 	
+	/**
+	 * Starts compressor when initialized
+	 */
 	public GearMission() {
 		compressor_0.setClosedLoopControl(true);
 	}
 	
+	/**
+	 * Opens the two flaps on the gear collection system
+	 */
+    public void openFlaps() {
+    	solenoid_0.set(true);
+    	solenoid_3.set(true);
+    }
+    
+    /**
+     * Closes the two flaps on the gear collection system
+     */
+    public void closeFlaps() {
+    	solenoid_0.set(false);
+    	solenoid_3.set(false);
+    }
+    
+    /**
+     * Tilts servo to receive gear from gear drop
+     */
+    public void collectGear() {
+    	gearServo.set(1.0);
+    }
+    
+    /**
+     * Resets servo to default position
+     */
+    public void resetServo() {
+    	gearServo.set(0.45);
+    }
+    
+    /**
+     * Activates piston to push gear out of gear collection system
+     */
+    public void pushGear() {
+    	solenoid_1.set(true);
+    }
+    
+    /**
+     * Retracts pusher piston
+     */
+    public void retract() {
+    	solenoid_1.set(false);
+    }
+    
     public void initDefaultCommand() {
     	compressor_0.start();
     	solenoid_0.set(false);
@@ -27,41 +74,6 @@ public class GearMission extends Subsystem {
     	solenoid_2.set(false);
     	solenoid_3.set(false);
     }
-    
-    //Gear Mission
-    public void openFlaps() {
-    	solenoid_0.set(true);
-    	solenoid_3.set(true);
-    }
-    
-    public void closeFlaps() {
-    	solenoid_0.set(false);
-    	solenoid_3.set(false);
-    }
-    
-    public void collectGear() {
-    	gearServo.set(1.0);
-    }
-    
-    public void resetServo() {
-    	gearServo.set(0.45);
-    }
-    
-    public void pushGear() {
-    	solenoid_1.set(true);
-    }
-    
-    public void retract() {
-    	solenoid_1.set(false);
-    }
-    
-//    public void test(boolean bool, boolean bool2, boolean bool3, boolean bool4) {
-//    	//Tests solenoids 0 - 4 to ensure that they work
-//    	solenoid_0.set(bool);
-//    	solenoid_1.set(bool2);
-//    	solenoid_2.set(bool3);
-//    	solenoid_3.set(bool4);
-//    }
 }
 
  

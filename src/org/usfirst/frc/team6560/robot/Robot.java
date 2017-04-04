@@ -29,7 +29,9 @@ public class Robot extends IterativeRobot {
 		gearMission = new GearMission();	
 		hanger = new Hanger();
 		oi = new OI();
+		
 		gearCamera = CameraServer.getInstance().startAutomaticCapture();
+		
 		chooser.addDefault("Center Gear Auto", new CenterPegAutonomous());
 		chooser.addObject("Left Gear Auto", new LeftPegAutonomous());
 		chooser.addObject("Right Gear Auto", new RightPegAutonomous());
