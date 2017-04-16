@@ -1,40 +1,42 @@
 package org.usfirst.frc.team6560.robot.commands;
 
 import org.usfirst.frc.team6560.robot.Robot;
-
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Pushes gear out using pneumatic piston until a certain time is reached
- * Retracts the piston once time is reached
+ * Pushes gear out/retracts using pneumatic piston
  */
 public class PushGear extends Command {
-
-	private double time;
-	private Timer timer;
+	boolean complete;
+	boolean isPushing;
 	
-    public PushGear(double t) {
+    public PushGear(boolean isPushing) {
     	requires(Robot.gearMission);
-    	time = t;
+    	this.isPushing = isPushing;
     }
 
     protected void initialize() {
-    	timer = new Timer();
-    	timer.reset();
-    	timer.start();
+    	complete = false;
     }
 
     protected void execute() {
-    	Robot.gearMission.pushGear();
+    	if(!complete) {
+    		if(isPushing) {
+    			Robot.gearMission.pushGear();
+    			complete = true;
+    		}
+    		else {
+    			Robot.gearMission.retract();
+    			complete = true;
+    		}
+    	}
     }
 
     protected boolean isFinished() {
-    	return timer.get() >= time;
+    	return complete;
     }
 
     protected void end() {
-    	Robot.gearMission.retract();
     }
 
     protected void interrupted() {
