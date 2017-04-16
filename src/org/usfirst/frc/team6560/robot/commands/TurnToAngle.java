@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TurnToAngle extends Command {
 	private int angle;
 
-	public TurnToAngle(int n) {
+	public TurnToAngle(int angleToTurn) {
 		requires(Robot.drive);
-		angle = n;
+		angle = angleToTurn;
 	}
 
 	protected void initialize() {

@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveStraight extends Command {
 	private double speed;
 	
-	public DriveStraight(double dbl) {
+	public DriveStraight(double speedValue) {
         requires(Robot.drive);
-        speed = dbl;
+        speed = speedValue;
     }
 
     protected void initialize() {

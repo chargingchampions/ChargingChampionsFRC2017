@@ -10,6 +10,9 @@ public class PushGear extends Command {
 	boolean complete;
 	boolean isPushing;
 	
+	/**
+	 * @param isPushing True: Push gear out / False: Retract pusher
+	 */
     public PushGear(boolean isPushing) {
     	requires(Robot.gearMission);
     	this.isPushing = isPushing;

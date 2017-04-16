@@ -13,10 +13,10 @@ public class DriveStraightTime extends Command {
 	private double speed;
 	private Timer timer;
 	
-    public DriveStraightTime(double t, double s) {
+    public DriveStraightTime(double timeValue, double speedValue) {
         requires(Robot.drive);
-        time = t;
-        speed = s;
+        time = timeValue;
+        speed = speedValue;
     }
 
     protected void initialize() {

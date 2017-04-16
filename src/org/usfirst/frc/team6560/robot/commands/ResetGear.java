@@ -9,6 +9,6 @@ public class ResetGear extends CommandGroup {
 
     public ResetGear() {
     	addSequential(new PushGear(false));
-    	addSequential(new OpenFlaps(false));
+    	addSequential(new MoveFlaps(false));
     }
 }

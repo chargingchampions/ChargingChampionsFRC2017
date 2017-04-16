@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class DeployGear extends CommandGroup {
 
     public DeployGear() {
-        addSequential(new OpenFlaps(true));
+        addSequential(new MoveFlaps(true));
         Timer.delay(0.1);
         addSequential(new PushGear(true));
     }

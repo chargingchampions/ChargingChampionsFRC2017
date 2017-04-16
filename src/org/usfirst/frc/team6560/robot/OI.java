@@ -50,8 +50,8 @@ public class OI {
 		trigger.whenReleased(new ResetGear());
 		rightThumb.whileHeld(new CollectGear());
 		button3.whileHeld(new RunHangerSlider());
-		button4.whenPressed(new OpenFlaps(true));
-		button4.whenReleased(new OpenFlaps(false));
+		button4.whenPressed(new MoveFlaps(true));
+		button4.whenReleased(new MoveFlaps(false));
 		button5.whenPressed(new PushGear(true));
 		button5.whenReleased(new PushGear(false));
 		button12.whileHeld(new SpinHangBackwards());
