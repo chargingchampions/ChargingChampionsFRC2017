@@ -10,9 +10,9 @@ public class SpinLeft extends Command {
 	
 	private double speed;
 	
-    public SpinLeft(double speedValue) {
+    public SpinLeft(double dbl) {
         requires(Robot.drive);
-        speed = speedValue;
+        speed = dbl;
     }
 
     protected void initialize() {

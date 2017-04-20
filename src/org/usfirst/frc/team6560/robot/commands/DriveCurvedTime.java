@@ -1,41 +1,44 @@
 package org.usfirst.frc.team6560.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team6560.robot.Robot;
 
-/**
- * Drives straight for an input time and speed
- */
-public class DriveStraightTime extends Command {
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
-	private double time;
+/**
+ * Drives the robot at a curve until a certain time is reached
+ */
+public class DriveCurvedTime extends Command {
+
 	private double speed;
+	private int angle;
+	private double time;
 	private Timer timer;
 	
-    public DriveStraightTime(double t, double s) {
+    public DriveCurvedTime(double s, int a, double t) {
         requires(Robot.drive);
-        time = t;
         speed = s;
+        angle = a;
+        time = t;
     }
 
     protected void initialize() {
-        Robot.drive.gyro.reset();
+    	Robot.drive.gyro.reset();
     	timer = new Timer();
     	timer.reset();
     	timer.start();
     }
 
     protected void execute() {
-    	Robot.drive.driveStraight(speed);
+    	Robot.drive.driveCurve(angle, speed);
     }
+
     protected boolean isFinished() {
-    	return (timer.get() >= time);
+        return timer.get() >= time;
     }
 
     protected void end() {
     	Robot.drive.stop();
-    	timer.stop();
     }
 
     protected void interrupted() {

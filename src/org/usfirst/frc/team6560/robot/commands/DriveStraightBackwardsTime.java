@@ -14,10 +14,10 @@ public class DriveStraightBackwardsTime extends Command {
 	private double speed;
 	private Timer timer;
 	
-    public DriveStraightBackwardsTime(double timeValue, double speedValue) {
+    public DriveStraightBackwardsTime(double t, double s) {
         requires(Robot.drive);
-        time = timeValue;
-        speed = speedValue;
+        time = t;
+        speed = s;
     }
 
     protected void initialize() {

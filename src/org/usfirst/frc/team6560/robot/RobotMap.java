@@ -3,6 +3,7 @@ package org.usfirst.frc.team6560.robot;
 /**
  * Holds all important constants
  */
+
 public class RobotMap {
 	public static class Joysticks {
 		public static final int JOYSTICK1 = 5;

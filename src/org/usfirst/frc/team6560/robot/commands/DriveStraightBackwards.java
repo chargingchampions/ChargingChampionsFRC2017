@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveStraightBackwards extends Command {
 	private double speed;
 
-    public DriveStraightBackwards(double speedValue) {
+    public DriveStraightBackwards(double dbl) {
         requires(Robot.drive);
-        speed = speedValue;
+        speed = dbl;
     }
 
     protected void initialize() {

@@ -14,8 +14,8 @@ import org.usfirst.frc.team6560.robot.commands.TurnToAngle;
 public class CenterPegAutonomous extends CommandGroup {
 
     public CenterPegAutonomous() {   	
-    	addSequential(new DriveStraightTime(0.75, 0.5));
-    	addSequential(new DriveStraightTime(0.5, 0.25));
+    	addSequential(new DriveStraightTime(1.5, 0.5));
+    	addSequential(new DriveStraightTime(0.45, 0.4));
     	addSequential(new StopDriveTime(0.5));
     	addSequential(new TurnToAngle(1));
     	addSequential(new TurnToAngle(-2));

@@ -43,16 +43,14 @@ public class GearMission extends Subsystem {
      * Tilts servo to receive gear from gear drop
      */
     public void collectGear() {
-    	//gearServo.set(0); // for backup robot
-    	gearServo.set(1); // for real robot
+    	gearServo.set(1.0);
     }
     
     /**
      * Resets servo to default position
      */
     public void resetServo() {
-    	//gearServo.set(0.55); // for backup robot
-    	gearServo.set(0.45); // for real robot
+    	gearServo.set(0.45);
     }
     
     /**

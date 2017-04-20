@@ -41,20 +41,19 @@ public class OI {
 		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
 
 		//Commands
+		trigger.whenPressed(new DeployGear());
+		trigger.whenReleased(new ResetGear());
+		button5.whenPressed(new PushGear(true));
+		button5.whenPressed(new PushGear(false));
+		rightThumb.whileHeld(new CollectGear());
+		button3.whileHeld(new RunHangerSlider());
 		yButton.whileHeld(new DriveStraight(0.9));
 		aButton.whileHeld(new DriveStraightBackwards(-0.9));
 		xButton.whileHeld(new SpinLeft(0.8));
 		bButton.whileHeld(new SpinRight(0.8));
-		
-		trigger.whenPressed(new DeployGear());
-		trigger.whenReleased(new ResetGear());
-		rightThumb.whileHeld(new CollectGear());
-		button3.whileHeld(new RunHangerSlider());
-		button4.whenPressed(new MoveFlaps(true));
-		button4.whenReleased(new MoveFlaps(false));
-		button5.whenPressed(new PushGear(true));
-		button5.whenReleased(new PushGear(false));
 		button12.whileHeld(new SpinHangBackwards());
+		button4.whenPressed(new MoveFlaps(true));
+		button4.whenPressed(new MoveFlaps(false));
 	}
 
 	// Axes

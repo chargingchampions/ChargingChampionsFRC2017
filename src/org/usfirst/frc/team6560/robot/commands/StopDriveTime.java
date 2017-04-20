@@ -12,9 +12,10 @@ public class StopDriveTime extends Command {
 	double time;
 	Timer timer;
 
-    public StopDriveTime(double timeValue) {
+    public StopDriveTime(double t) {
         requires(Robot.drive);
-        time = timeValue;
+        time = t;
+        
     }
 
     protected void initialize() {
