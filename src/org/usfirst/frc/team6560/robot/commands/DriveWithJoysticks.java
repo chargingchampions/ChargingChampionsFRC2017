@@ -16,6 +16,10 @@ public class DriveWithJoysticks extends Command {
     }
 
     protected void execute() {
+    	if(Math.abs(Robot.oi.getLeftYAxis() - Robot.oi.getRightYAxis()) <= 0.05) {
+    		Robot.drive.driveStraight(Robot.oi.getLeftYAxis());
+    	}
+    	else
     		//Drivetrain is inverted so negative values are needed
     		Robot.drive.driveWithJoysticks(-0.9 * Robot.oi.getLeftYAxis(), -0.9 * Robot.oi.getRightYAxis());
     }

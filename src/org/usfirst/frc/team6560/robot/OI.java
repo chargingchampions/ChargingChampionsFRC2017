@@ -20,7 +20,7 @@ public class OI {
 		JoystickButton bButton = new JoystickButton(gamepad, Joysticks.B_BUTTON);
 		JoystickButton xButton = new JoystickButton(gamepad, Joysticks.X_BUTTON);
 		JoystickButton yButton = new JoystickButton(gamepad, Joysticks.Y_BUTTON);
-		JoystickButton leftIndex = new JoystickButton(gamepad, Joysticks.LEFT_INDEX_BUTTON);
+//		JoystickButton leftIndex = new JoystickButton(gamepad, Joysticks.LEFT_INDEX_BUTTON);
 //		JoystickButton rightIndex = new JoystickButton(gamepad, Joysticks.RIGHT_INDEX_BUTTON);
 //		JoystickButton backButton = new JoystickButton(gamepad, Joysticks.BACK_BUTTON);
 //		JoystickButton startButton = new JoystickButton(gamepad, Joysticks.START_BUTTON);
@@ -54,7 +54,6 @@ public class OI {
 		button12.whileHeld(new SpinHangBackwards());
 		button4.whenPressed(new MoveFlaps(true));
 		button4.whenReleased(new MoveFlaps(false));
-		leftIndex.whileHeld(new DriveWithJoysticksGyro());
 	}
 
 	// Axes
