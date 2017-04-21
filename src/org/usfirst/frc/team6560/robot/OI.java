@@ -44,7 +44,7 @@ public class OI {
 		trigger.whenPressed(new DeployGear());
 		trigger.whenReleased(new ResetGear());
 		button5.whenPressed(new PushGear(true));
-		button5.whenPressed(new PushGear(false));
+		button5.whenReleased(new PushGear(false));
 		rightThumb.whileHeld(new CollectGear());
 		button3.whileHeld(new RunHangerSlider());
 		yButton.whileHeld(new DriveStraight(0.9));
@@ -53,7 +53,7 @@ public class OI {
 		bButton.whileHeld(new SpinRight(0.8));
 		button12.whileHeld(new SpinHangBackwards());
 		button4.whenPressed(new MoveFlaps(true));
-		button4.whenPressed(new MoveFlaps(false));
+		button4.whenReleased(new MoveFlaps(false));
 	}
 
 	// Axes
