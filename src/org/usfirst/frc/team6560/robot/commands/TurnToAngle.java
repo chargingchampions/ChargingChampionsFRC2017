@@ -23,9 +23,9 @@ public class TurnToAngle extends Command {
 
 	protected void execute() {
 		if (angle > 0)
-			Robot.drive.spinRight(0.25);
+			Robot.drive.spinRight(0.1);
 		if (angle < 0)
-			Robot.drive.spinLeft(0.25);
+			Robot.drive.spinLeft(0.1);
 	}
 
 	protected boolean isFinished() {
