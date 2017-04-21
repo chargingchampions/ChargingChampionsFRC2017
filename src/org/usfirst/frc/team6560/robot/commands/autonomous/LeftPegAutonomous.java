@@ -17,12 +17,13 @@ public class LeftPegAutonomous extends CommandGroup {
     public LeftPegAutonomous() {
     	addSequential(new DriveStraightTime(1.3, 0.5));
     	Timer.delay(1.0);
-    	addSequential(new TurnToAngle(30));
+    	addSequential(new TurnToAngle(30, 0.25));
     	Timer.delay(1.0);
     	addSequential(new DriveStraightTime(0.5, 0.5));
     	addSequential(new DriveStraightTime(0.2, 0.2));
-    	addSequential(new TurnToAngle(1));
-    	addSequential(new TurnToAngle(-2));
+    	addSequential(new TurnToAngle(1, 0.25));
+    	addSequential(new TurnToAngle(-2, 0.25));
+    	addSequential(new TurnToAngle(1, 0.25));
     	addSequential(new DriveStraightTime(0.5, 0.2));
     	Timer.delay(0.4);
     	addSequential(new DeployGear());

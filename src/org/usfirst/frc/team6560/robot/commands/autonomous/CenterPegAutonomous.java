@@ -17,8 +17,9 @@ public class CenterPegAutonomous extends CommandGroup {
     public CenterPegAutonomous() {   	
     	addSequential(new DriveStraightTime(1.3, 0.5));
     	addSequential(new DriveStraightTime(0.8, 0.3));
-    	addSequential(new TurnToAngle(1));
-    	addSequential(new TurnToAngle(-2));
+    	addSequential(new TurnToAngle(1, 0.25));
+    	addSequential(new TurnToAngle(-2, 0.25));
+    	addSequential(new TurnToAngle(1, 0.25));
     	addSequential(new DriveStraightTime(0.5, 0.3));
     	addSequential(new DeployGear());
     	addParallel(new DriveStraightBackwardsTime(0.2, 0.25));
