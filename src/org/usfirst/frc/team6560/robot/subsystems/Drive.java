@@ -4,6 +4,7 @@ import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Ultrasonic;
 
 import org.usfirst.frc.team6560.robot.RobotMap.Can;
@@ -17,7 +18,7 @@ public class Drive extends Subsystem {
     public RobotDrive drivetrain = new RobotDrive(leftTopMotor, leftBottomMotor, rightTopMotor, rightBottomMotor);
     public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
     public Ultrasonic ultra = new Ultrasonic(0, 1);
-    private final double kP = 0.03; //Proportional scaling constant
+    private final double kP = 0.01; //Proportional scaling constant
 
     /**
      * Calibrates gyro when initialized and sets current angle to 0
@@ -46,6 +47,7 @@ public class Drive extends Subsystem {
     	speed = Math.abs(speed);
       	int angle = getGyroAngle();
     	drivetrain.drive(speed, -1 * angle * kP);
+    	Timer.delay(0.004); //4 millisecond delay to allow for gyro to calibrate
     }
 
     /**
@@ -57,6 +59,7 @@ public class Drive extends Subsystem {
     	speed = Math.abs(speed);
     	int angle = getGyroAngle();
     	drivetrain.drive(-1 * speed, angle * kP);
+    	Timer.delay(0.004); //4 millisecond delay to allow for gyro to calibrate
     }
     
     /**

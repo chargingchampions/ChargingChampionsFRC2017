@@ -3,6 +3,7 @@ package org.usfirst.frc.team6560.robot;
 /**
  * Holds all important constants
  */
+
 public class RobotMap {
 	public static class Joysticks {
 		public static final int JOYSTICK1 = 5;
@@ -43,10 +44,10 @@ public class RobotMap {
 		public static final int BUTTON_12 = 12;
 		
 		//DS Axes
-		public static final int DS_X_AXIS = 0;
-		public static final int DS_Y_AXIS = 1;
-		public static final int DS_Z_AXIS = 2;
-		public static final int DS_SLIDER = 3;
+		public static final int SECOND_X_AXIS = 0;
+		public static final int SECOND_Y_AXIS = 1;
+		public static final int SECOND_Z_AXIS = 2;
+		public static final int SECOND_SLIDER = 3;
 	}
 	
 	public static class Can {

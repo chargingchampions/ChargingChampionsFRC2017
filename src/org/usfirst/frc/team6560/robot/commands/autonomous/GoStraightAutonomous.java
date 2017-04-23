@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc.team6560.robot.commands.DriveStraightTime;
 
 /**
- * Autonomously drives the robot straight to cross the baseline
+ * Autonomously drives the robot straight to cross the baseline. Used for emergency
  */
 public class GoStraightAutonomous extends CommandGroup {
 

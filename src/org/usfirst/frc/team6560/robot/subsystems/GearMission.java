@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Servo;
 
 public class GearMission extends Subsystem {
-
 	public Solenoid solenoid_0 = new Solenoid(RobotMap.Can.SOLENOID_0);
 	public Solenoid solenoid_1 = new Solenoid(RobotMap.Can.SOLENOID_1);
 	public Solenoid solenoid_2 = new Solenoid(RobotMap.Can.SOLENOID_2);
@@ -43,16 +42,14 @@ public class GearMission extends Subsystem {
      * Tilts servo to receive gear from gear drop
      */
     public void collectGear() {
-    	//gearServo.set(0); // for backup robot
-    	gearServo.set(1); // for real robot
+    	gearServo.set(1.0);
     }
     
     /**
      * Resets servo to default position
      */
     public void resetServo() {
-    	//gearServo.set(0.55); // for backup robot
-    	gearServo.set(0.45); // for real robot
+    	gearServo.set(0.45);
     }
     
     /**

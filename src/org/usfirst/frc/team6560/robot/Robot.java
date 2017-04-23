@@ -20,7 +20,6 @@ public class Robot extends IterativeRobot {
 	public static GearMission gearMission;
 	public static Hanger hanger;
 	public static UsbCamera gearCamera;
-	public static UsbCamera hangerCamera;
 	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -32,7 +31,6 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		
 		gearCamera = CameraServer.getInstance().startAutomaticCapture();
-		hangerCamera = CameraServer.getInstance().startAutomaticCapture();
 		
 		chooser.addDefault("Center Gear Auto", new CenterPegAutonomous());
 		chooser.addObject("Left Gear Auto", new LeftPegAutonomous());
