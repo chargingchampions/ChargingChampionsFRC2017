@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team6560.robot.RobotMap.Can;
 
 public class Hanger extends Subsystem {
-
     CANTalon hangerMotor = new CANTalon(Can.MOTOR);
    
     public void runHanger() {

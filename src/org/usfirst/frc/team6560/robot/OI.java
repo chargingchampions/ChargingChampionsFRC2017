@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public final Joystick gamepad;
-	public final Joystick driverstation;
+	public final Joystick secondaryRemote;
 
 	public OI() {
 		gamepad = new Joystick(Joysticks.JOYSTICK1);
-		driverstation = new Joystick(Joysticks.DRV_STATION);
+		secondaryRemote = new Joystick(Joysticks.DRV_STATION);
 
 		JoystickButton aButton = new JoystickButton(gamepad, Joysticks.A_BUTTON);
 		JoystickButton bButton = new JoystickButton(gamepad, Joysticks.B_BUTTON);
@@ -27,34 +27,36 @@ public class OI {
 //		JoystickButton leftAxisButton = new JoystickButton(gamepad, Joysticks.LEFT_AXIS_BUTTON);
 //		JoystickButton rightAxisButton = new JoystickButton(gamepad, Joysticks.RIGHT_AXIS_BUTTON);
 
-		JoystickButton trigger = new JoystickButton(driverstation, Joysticks.TRIGGER_BUTTON);
-		JoystickButton rightThumb = new JoystickButton(driverstation, Joysticks.RIGHT_THUMB_BUTTON);
-		JoystickButton button3 = new JoystickButton(driverstation, Joysticks.BUTTON_3);
-		JoystickButton button4 = new JoystickButton(driverstation, Joysticks.BUTTON_4);
-		JoystickButton button5 = new JoystickButton(driverstation, Joysticks.BUTTON_5);
-//		JoystickButton button6 = new JoystickButton(driverstation, Joysticks.BUTTON_6);
-//		JoystickButton button7 = new JoystickButton(driverstation, Joysticks.BUTTON_7);
-//		JoystickButton button8 = new JoystickButton(driverstation, Joysticks.BUTTON_8);
-//		JoystickButton button9 = new JoystickButton(driverstation, Joysticks.BUTTON_9);
-//		JoystickButton button10 = new JoystickButton(driverstation, Joysticks.BUTTON_10);
-//		JoystickButton button11 = new JoystickButton(driverstation, Joysticks.BUTTON_11);
-		JoystickButton button12 = new JoystickButton(driverstation, Joysticks.BUTTON_12);
+		JoystickButton trigger = new JoystickButton(secondaryRemote, Joysticks.TRIGGER_BUTTON);
+		JoystickButton rightThumb = new JoystickButton(secondaryRemote, Joysticks.RIGHT_THUMB_BUTTON);
+		JoystickButton button3 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_3);
+		JoystickButton button4 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_4);
+		JoystickButton button5 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_5);
+//		JoystickButton button6 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_6);
+//		JoystickButton button7 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_7);
+//		JoystickButton button8 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_8);
+//		JoystickButton button9 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_9);
+//		JoystickButton button10 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_10);
+//		JoystickButton button11 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_11);
+		JoystickButton button12 = new JoystickButton(secondaryRemote, Joysticks.BUTTON_12);
 
-		//Commands
+		//Gamepad Commands
+		aButton.whileHeld(new DriveStraightBackwards(-0.9));
+		bButton.whileHeld(new SpinRight(0.8));
+		xButton.whileHeld(new SpinLeft(0.8));
+		yButton.whileHeld(new DriveStraight(0.9));
+		leftIndex.whileHeld(new DriveWithJoysticksGyro());
+		
+		//
 		trigger.whenPressed(new DeployGear());
 		trigger.whenReleased(new ResetGear());
-		button5.whenPressed(new PushGear(true));
-		button5.whenReleased(new PushGear(false));
 		rightThumb.whileHeld(new CollectGear());
 		button3.whileHeld(new RunHangerSlider());
-		yButton.whileHeld(new DriveStraight(0.9));
-		aButton.whileHeld(new DriveStraightBackwards(-0.9));
-		xButton.whileHeld(new SpinLeft(0.8));
-		bButton.whileHeld(new SpinRight(0.8));
-		button12.whileHeld(new SpinHangBackwards());
 		button4.whenPressed(new MoveFlaps(true));
 		button4.whenReleased(new MoveFlaps(false));
-		leftIndex.whileHeld(new DriveWithJoysticksGyro());
+		button5.whenPressed(new PushGear(true));
+		button5.whenReleased(new PushGear(false));
+		button12.whileHeld(new SpinHangBackwards());
 	}
 
 	// Axes
@@ -86,19 +88,19 @@ public class OI {
 		return gamepad.getPOV();
 	}
 
-	public double getDSXAxis() {
-		return driverstation.getRawAxis(Joysticks.DS_X_AXIS);
+	public double getSecondaryXAxis() {
+		return secondaryRemote.getRawAxis(Joysticks.SECOND_X_AXIS);
 	}
 
-	public double getDSYAxis() {
-		return driverstation.getRawAxis(Joysticks.DS_Y_AXIS);
+	public double getSecondaryYAxis() {
+		return secondaryRemote.getRawAxis(Joysticks.SECOND_Y_AXIS);
 	}
 
-	public double getDSZAxis() {
-		return driverstation.getRawAxis(Joysticks.DS_Z_AXIS);
+	public double getSecondaryZAxis() {
+		return secondaryRemote.getRawAxis(Joysticks.SECOND_Z_AXIS);
 	}
 
-	public double getDSSlider() {
-		return driverstation.getRawAxis(Joysticks.DS_SLIDER);
+	public double getSecondarySlider() {
+		return secondaryRemote.getRawAxis(Joysticks.SECOND_SLIDER);
 	}
 }

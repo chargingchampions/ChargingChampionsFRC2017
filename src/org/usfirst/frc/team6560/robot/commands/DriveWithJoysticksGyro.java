@@ -5,7 +5,8 @@ import org.usfirst.frc.team6560.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Modified DriveWithJoysticks Command that uses gryo-assisted correction to drive straightwhen left and right axis are within tolerable range
+ * of each other (0.08)
  */
 public class DriveWithJoysticksGyro extends Command {
 

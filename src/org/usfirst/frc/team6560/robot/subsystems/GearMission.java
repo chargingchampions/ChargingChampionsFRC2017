@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Servo;
 
 public class GearMission extends Subsystem {
-
 	public Solenoid solenoid_0 = new Solenoid(RobotMap.Can.SOLENOID_0);
 	public Solenoid solenoid_1 = new Solenoid(RobotMap.Can.SOLENOID_1);
 	public Solenoid solenoid_2 = new Solenoid(RobotMap.Can.SOLENOID_2);

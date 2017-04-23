@@ -47,7 +47,7 @@ public class Drive extends Subsystem {
     	speed = Math.abs(speed);
       	int angle = getGyroAngle();
     	drivetrain.drive(speed, -1 * angle * kP);
-    	Timer.delay(0.004);
+    	Timer.delay(0.004); //4 millisecond delay to allow for gyro to calibrate
     }
 
     /**
@@ -59,7 +59,7 @@ public class Drive extends Subsystem {
     	speed = Math.abs(speed);
     	int angle = getGyroAngle();
     	drivetrain.drive(-1 * speed, angle * kP);
-    	Timer.delay(0.004);
+    	Timer.delay(0.004); //4 millisecond delay to allow for gyro to calibrate
     }
     
     /**

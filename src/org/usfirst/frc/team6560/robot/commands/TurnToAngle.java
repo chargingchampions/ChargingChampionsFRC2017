@@ -15,10 +15,14 @@ public class TurnToAngle extends Command {
 	private double speed;
 	private Timer timer;
 
-	public TurnToAngle(int n, double speed) {
+	/**
+	 * @param angleToTurn Desired gyro heading
+	 * @param speedValue Speed to pivot the robot
+	 */
+	public TurnToAngle(int angleToTurn, double speedValue) {
 		requires(Robot.drive);
-		angle = n;
-		this.speed = speed;
+		angle = angleToTurn;
+		speed = speedValue;
 	}
 
 	protected void initialize() {
